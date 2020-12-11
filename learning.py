@@ -17,7 +17,7 @@ def start():
 
     tag_url = tag_base_url + tag_name
     
-    print (tag_url) # for display only 
+    # print (tag_url) # for display only 
 
     # 1. get webpage sources, store in variable (object)
 
@@ -35,11 +35,11 @@ def start():
 
     # 2. parsing
 
-    infolist = json.loads(jsonstr) # python dict obj 
-    #print (infolist)   
+    # infolist = json.loads(jsonstr) # python dict obj 
+    # #print (infolist)   # for display only 
 
-    with open('raw_all.json', 'w', encoding='utf-8') as jsonfile:
-        json.dump(infolist, jsonfile, indent=4, ensure_ascii=False)
+    # with open('raw_all.json', 'w', encoding='utf-8') as jsonfile:
+    #     json.dump(infolist, jsonfile, indent=4, ensure_ascii=False)
         
     #print(json.dumps(infolist, indent = 4, sort_keys=True)) # for display only 
 
@@ -51,9 +51,17 @@ def start():
     tottal_like : int = int(total_like_str.split(':')[2]) # Milestone
     print(tottal_like) 
 
-    toppost_str = re.search('"edge_hashtag_to_top_posts":', jsonstr).group(0)
-    print(toppost_str)
-    ###########
+
+    toppost_str = re.search('"edge_hashtag_to_top_posts":.*},"edge_hashtag_to_content_advisory', jsonstr).group(0)[28 : -34] # shameful hard coded # print(toppost_str)
+    toppost_dicts = json.loads(toppost_str)
+    with open('raw_top.json', 'w', encoding='utf-8') as jsonfile:
+        json.dump(toppost_dicts, jsonfile, indent=4, ensure_ascii=False) 
+    
+    # print(toppost_dicts["edges"][0]["node"])
+    
+    for dict in toppost_dicts["edges"]:
+        print(dict["node"]["shortcode"]) 
+
 
     # 3. save data
     path = ""
