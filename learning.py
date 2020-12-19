@@ -19,21 +19,13 @@ def start():
     
     # print (tag_url) # for display only 
 
-    # 1. get webpage sources, store in variable (object)
+# 1. get webpage sources, store in variable (object)
+    # function tagpage_json :: tag_url --> jsonstr 
 
-    html = get_content_url(tag_url)
-
-    soup = BeautifulSoup(html, "html.parser") # parser object
-
-    list_scrpit = soup.find_all("script", type="text/javascript")
-
-    # "window._sharedData = "
-    jsonstr = list_scrpit[3].string[20:-1]  # hard coded TODO -- no idea...
-
-    # print (jsonstr)
+    jsonstr = tagpage_json(tag_url)
 
 
-    # 2. parsing
+# 2. parsing
 
     # infolist = json.loads(jsonstr) # python dict obj 
     # #print (infolist)   # for display only 
@@ -47,9 +39,10 @@ def start():
     
     # print(infolist["entry_data"]["TagPage"][0]["graphql"]["hashtag"]["edge_hashtag_to_media"]["count"])
     # Hard Coded ::DONE 
+
     total_like_str = re.search('"edge_hashtag_to_media":{"count":(\d+)', jsonstr).group(0) #
-    tottal_like : int = int(total_like_str.split(':')[2]) # Milestone
-    print(tottal_like) 
+    tottal_like_count : int = int(total_like_str.split(':')[2]) # Milestone
+    print(tottal_like_count) 
 
 
     toppost_str = re.search('"edge_hashtag_to_top_posts":.*},"edge_hashtag_to_content_advisory', jsonstr).group(0)[28 : -34] # shameful hard coded # print(toppost_str)
@@ -93,7 +86,19 @@ def get_content_url(url): # return page source HTML
             print(e.reason)
     
     return html 
-        
+
+
+def tagpage_json(tag_url): 
+    html = get_content_url(tag_url)
+
+    soup = BeautifulSoup(html, "html.parser") # parser object
+
+    list_scrpit = soup.find_all("script", type="text/javascript")
+
+    # "window._sharedData = "
+    jsonstr = list_scrpit[3].string[20:-1]  
+
+    return jsonstr
 
 
     # GET method
