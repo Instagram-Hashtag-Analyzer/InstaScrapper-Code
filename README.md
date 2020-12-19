@@ -8,3 +8,7 @@ python 3 without using selenium
 2. json str is obtained
 
 3. parse to get the info of top posts
+
+Dependencies: 
+`BeautifulSoup`
+`mysql.connector`
