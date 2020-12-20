@@ -12,3 +12,6 @@ python 3 without using selenium
 Dependencies: 
 `BeautifulSoup`
 `mysql.connector`
+
+
+`pip install -r requirements.txt` requires `virtualenv`? 

@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup  # pip install bs4 # parse web, obtain data
 import urllib.request, urllib.error # get webpage by URL 
 #import xlwt # excel
 import json
-import sqlite3 
+import mysql.connector
 
 def start():
 
@@ -53,11 +53,20 @@ def start():
     # print(toppost_dicts["edges"][0]["node"])
     
     for dict in toppost_dicts["edges"]:
-        print(dict["node"]["shortcode"]) 
+        print(dict["node"]["shortcode"] + '\t' 
+            + str(dict["node"]["edge_liked_by"]["count"]) + '\t'
+            + str(dict["node"]["edge_media_to_comment"]["count"])) 
 
 
-    # 3. save data
-    path = ""
+# 3. save data to DB
+    
+    mydb = mysql.connector.connect(
+	host="localhost",
+	user="root",
+	password="i13554640383"
+    )
+
+    print(mydb)
 
 
 def get_content_url(url): # return page source HTML
