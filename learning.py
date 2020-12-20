@@ -63,12 +63,13 @@ def start():
     mydb = mysql.connector.connect(
 	host="localhost",
 	user="root",
-	password="i13554640383"
+	password="TIC3901"
     )
 
     print(mydb)
 
 
+# Function Definition: 
 def get_content_url(url): # return page source HTML
 
     data = bytes(urllib.parse.urlencode({'name': 'user'}), encoding = "utf-8")
