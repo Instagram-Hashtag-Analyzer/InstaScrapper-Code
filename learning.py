@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
     
 import re
-from bs4 import BeautifulSoup  # pip install bs4 # parse web, obtain data 
+from bs4 import BeautifulSoup       # pip install bs4 # parse web, obtain data 
 import urllib.request, urllib.error # get webpage by URL 
 #import xlwt # excel
 import json
 import mysql.connector
+from mysql.connector import errorcode
 
 def start():
 
@@ -60,16 +61,58 @@ def start():
 
 # 3. save data to DB
     
-    mydb = mysql.connector.connect(
-	host="localhost",
-	user="root",
-	password="TIC3901"
+    # Create Database if not exists 
+    try: 
+        mydb = mysql.connector.connect(
+        host     = "localhost",
+        user     = "root",
+        password = "TIC3901"
+        )
+    
+        mycursor = mydb.cursor()
+        
+        mycursor.execute('''
+            CREATE DATABASE explore;
+        ''')
+        print("New Database Created!")
+    except mysql.connector.Error as e: 
+        if e.errno == errorcode.ER_ACCESS_DENIED_ERROR:
+            print("Something is wrong with your user name or password")
+        else: 
+            print("Preparing Database...")
+            pass
+    
+    
+    # Use/Connect Database 
+    conn = mysql.connector.connect(
+    host     = "localhost",
+    user     = "root",
+    password = "TIC3901", 
+    database = "explore",
+    charset  = "utf8",
+    collation= "utf8_general_ci"
     )
-
-    print(mydb)
-
+    
+    cursor = conn.cursor()
+    
+    # Create Table 01
+    try: 
+        cursor.execute(''' 
+            CREATE TABLE `hashtag` (
+            `id` int(11) NOT NULL,
+            `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+            `createDate` datetime NOT NULL DEFAULT current_timestamp()
+            ) 
+        ''')
+    except mysql.connector.Error as e: 
+        pass 
+        
+    conn.close()
 
 # Function Definition: 
+    
+    
+    
 def get_content_url(url): # return page source HTML
 
     data = bytes(urllib.parse.urlencode({'name': 'user'}), encoding = "utf-8")
@@ -146,3 +189,4 @@ list = ['a', 'b', 'c']
 for i, k in enumerate(list):
     print ("%d: %s"%(i, k))
 '''
+    
