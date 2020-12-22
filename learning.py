@@ -7,6 +7,8 @@ import urllib.request, urllib.error # get webpage by URL
 import json
 import mysql.connector
 from mysql.connector import errorcode
+import time
+from datetime import datetime 
 
 def start():
 
@@ -28,19 +30,6 @@ def start():
 
 # 2. parsing
 
-    # infolist = json.loads(jsonstr) # python dict obj 
-    # #print (infolist)   # for display only 
-
-    # with open('raw_all.json', 'w', encoding='utf-8') as jsonfile:
-    #     json.dump(infolist, jsonfile, indent=4, ensure_ascii=False)
-        
-    #print(json.dumps(infolist, indent = 4, sort_keys=True)) # for display only 
-
-    # edge_hashtag_to_top_posts
-    
-    # print(infolist["entry_data"]["TagPage"][0]["graphql"]["hashtag"]["edge_hashtag_to_media"]["count"])
-    # Hard Coded ::DONE 
-
     total_like_str = re.search('"edge_hashtag_to_media":{"count":(\d+)', jsonstr).group(0) #
     tottal_like_count : int = int(total_like_str.split(':')[2]) # Milestone
     print(tottal_like_count) 
@@ -53,10 +42,13 @@ def start():
     
     # print(toppost_dicts["edges"][0]["node"])
     
+    print("PostID\tLikes\tComments\tDate")
     for dict in toppost_dicts["edges"]:
         print(dict["node"]["shortcode"] + '\t' 
             + str(dict["node"]["edge_liked_by"]["count"]) + '\t'
-            + str(dict["node"]["edge_media_to_comment"]["count"])) 
+            + str(dict["node"]["edge_media_to_comment"]["count"]) + '\t'
+            + datetime.utcfromtimestamp(dict["node"]["taken_at_timestamp"]).strftime('%Y-%m-%d')
+        ) 
 
 
 # 3. save data to DB
@@ -109,10 +101,10 @@ def start():
         
     conn.close()
 
-# Function Definition: 
+
+## Function Definition: 
     
-    
-    
+        
 def get_content_url(url): # return page source HTML
 
     data = bytes(urllib.parse.urlencode({'name': 'user'}), encoding = "utf-8")
@@ -166,9 +158,9 @@ def tagpage_json(tag_url):
 
 
 if __name__ == "__main__":
-    
+    start_time = time.time()
     start()
-
+    print("--- execution time: %ss ---" % (time.time() - start_time))
 
 
 
@@ -189,4 +181,18 @@ list = ['a', 'b', 'c']
 for i, k in enumerate(list):
     print ("%d: %s"%(i, k))
 '''
+
+# 2. parsing
     
+    # infolist = json.loads(jsonstr) # python dict obj 
+    # #print (infolist)   # for display only 
+    
+    # with open('raw_all.json', 'w', encoding='utf-8') as jsonfile:
+    #     json.dump(infolist, jsonfile, indent=4, ensure_ascii=False)
+    
+    #print(json.dumps(infolist, indent = 4, sort_keys=True)) # for display only 
+    
+    # edge_hashtag_to_top_posts
+    
+    # print(infolist["entry_data"]["TagPage"][0]["graphql"]["hashtag"]["edge_hashtag_to_media"]["count"])
+    # Hard Coded ::DONE 
