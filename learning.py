@@ -1,20 +1,22 @@
 # -*- coding: utf-8 -*-
-    
+
+import urllib.request
+import urllib.error # get webpage by URL
 import re
-from bs4 import BeautifulSoup       # pip install bs4 # parse web, obtain data 
-import urllib.request, urllib.error # get webpage by URL 
-#import xlwt # excel
 import json
+import time
+from datetime import datetime
+from bs4 import BeautifulSoup       # pip install bs4 # parse web, obtain data 
+# import xlwt # excel
 import mysql.connector
 from mysql.connector import errorcode
-import time
-from datetime import datetime 
+
 
 def start():
 
     print ("\t Instagram Hashtag Scrapper \n")
     tag_base_url = "https://www.instagram.com/explore/tags/"
-    post_base_url = "https://www.instagram.com/p/"
+    # post_base_url = "https://www.instagram.com/p/"
 
     tag_name = input("Please Enter a Hashtag: ")
 
@@ -25,47 +27,84 @@ def start():
 # 1. get webpage sources, store in variable (object)
     # function tagpage_json :: tag_url --> jsonstr 
 
-    jsonstr = tagpage_json(tag_url)
+    jsonstr = get_tagpage_json(tag_url)
 
 
 # 2. parsing
 
     total_like_str = re.search('"edge_hashtag_to_media":{"count":(\d+)', jsonstr).group(0) #
     tottal_like_count : int = int(total_like_str.split(':')[2]) # Milestone
-    print(tottal_like_count) 
-
+    print('Total likes: \t' + str(tottal_like_count)) 
 
     toppost_str = re.search('"edge_hashtag_to_top_posts":.*},"edge_hashtag_to_content_advisory', jsonstr).group(0)[28 : -34] # shameful hard coded # print(toppost_str)
     toppost_dicts = json.loads(toppost_str)
     with open('raw_top.json', 'w', encoding='utf-8') as jsonfile:
         json.dump(toppost_dicts, jsonfile, indent=4, ensure_ascii=False) 
-    
+
     # print(toppost_dicts["edges"][0]["node"])
-    
-    print("PostID\tLikes\tComments\tDate")
+
+    print("PostID\t\tLikes\tComments\tDate")
     for dict in toppost_dicts["edges"]:
         print(dict["node"]["shortcode"] + '\t' 
             + str(dict["node"]["edge_liked_by"]["count"]) + '\t'
-            + str(dict["node"]["edge_media_to_comment"]["count"]) + '\t'
+            + str(dict["node"]["edge_media_to_comment"]["count"]) + '\t\t'
             + datetime.utcfromtimestamp(dict["node"]["taken_at_timestamp"]).strftime('%Y-%m-%d')
         ) 
 
 
 # 3. save data to DB
     
-    # Create Database if not exists 
+    # Create Database if not exists:    `explore`
+    DB_NAME = "explore"
+    create_database(DB_NAME)
+    
+    # Use/Connect Database    
+    conn = mysql.connector.connect(
+    host      = "localhost",
+    user      = "root",
+    password  = "TIC3901", 
+    database  =  DB_NAME,
+    charset   = "utf8",
+    collation = "utf8_general_ci"
+    )
+    
+    cursor = conn.cursor()
+    
+    # Create Table 01:    `hashtag`
     try: 
-        mydb = mysql.connector.connect(
+        cursor.execute(''' 
+            CREATE TABLE IF NOT EXISTS `hashtag` (
+            `id` int(11) NOT NULL,
+            `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+            `createDate` datetime NOT NULL DEFAULT current_timestamp()
+            ) 
+        ''')
+    except mysql.connector.Error as e: 
+        print("Table error: ")
+        print(e.msg)
+        pass 
+    
+    # Insert, modification of table 01: 
+    
+    
+    
+    cursor.close()
+    conn.close()
+
+
+## Function Definition: 
+def create_database(DB_NAME): 
+    try: 
+        newdb = mysql.connector.connect(
         host     = "localhost",
         user     = "root",
         password = "TIC3901"
         )
-    
-        mycursor = mydb.cursor()
         
-        mycursor.execute('''
-            CREATE DATABASE explore;
-        ''')
+        newcursor = newdb.cursor()
+        
+        newcursor.execute(
+            "CREATE DATABASE {};".format(DB_NAME))
         print("New Database Created!")
     except mysql.connector.Error as e: 
         if e.errno == errorcode.ER_ACCESS_DENIED_ERROR:
@@ -73,36 +112,7 @@ def start():
         else: 
             print("Preparing Database...")
             pass
-    
-    
-    # Use/Connect Database 
-    conn = mysql.connector.connect(
-    host     = "localhost",
-    user     = "root",
-    password = "TIC3901", 
-    database = "explore",
-    charset  = "utf8",
-    collation= "utf8_general_ci"
-    )
-    
-    cursor = conn.cursor()
-    
-    # Create Table 01
-    try: 
-        cursor.execute(''' 
-            CREATE TABLE `hashtag` (
-            `id` int(11) NOT NULL,
-            `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-            `createDate` datetime NOT NULL DEFAULT current_timestamp()
-            ) 
-        ''')
-    except mysql.connector.Error as e: 
-        pass 
-        
-    conn.close()
 
-
-## Function Definition: 
     
         
 def get_content_url(url): # return page source HTML
@@ -113,7 +123,7 @@ def get_content_url(url): # return page source HTML
 
     headers = {
         "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36", 
-        "Cookie" : cookie 
+        "Cookie": cookie
     }
 
     request = urllib.request.Request(url=url, data=data, headers=headers, method="POST") # fine to be GET without data 
@@ -133,7 +143,7 @@ def get_content_url(url): # return page source HTML
     return html 
 
 
-def tagpage_json(tag_url): 
+def get_tagpage_json(tag_url): 
     html = get_content_url(tag_url)
 
     soup = BeautifulSoup(html, "html.parser") # parser object
@@ -160,7 +170,7 @@ def tagpage_json(tag_url):
 if __name__ == "__main__":
     start_time = time.time()
     start()
-    print("--- execution time: %ss ---" % (time.time() - start_time))
+    print("-- execution time: %ss --" % (time.time() - start_time))
 
 
 
@@ -195,4 +205,5 @@ for i, k in enumerate(list):
     # edge_hashtag_to_top_posts
     
     # print(infolist["entry_data"]["TagPage"][0]["graphql"]["hashtag"]["edge_hashtag_to_media"]["count"])
-    # Hard Coded ::DONE 
+    # Hard Coded ::DONE
+    
