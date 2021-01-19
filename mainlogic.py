@@ -74,8 +74,9 @@ def start():
     try: 
         cursor.execute(''' 
             CREATE TABLE IF NOT EXISTS `hashtag` (
-            `numPost` int(12) NOT NULL,
             `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+            `numPost` int(12) NOT NULL,
+            `top9PostId` varchar(50) COLLATE utf8_unicode_ci,
             `createDate` datetime NOT NULL DEFAULT current_timestamp()
             ) 
         ''')
