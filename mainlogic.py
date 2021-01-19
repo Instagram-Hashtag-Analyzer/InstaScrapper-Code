@@ -5,11 +5,11 @@ import urllib.error # get webpage by URL
 import re
 import json
 import time
-from datetime import datetime
-from bs4 import BeautifulSoup       # pip install bs4 # parse web, obtain data 
-# import xlwt # excel
+from datetime import datetime, date
+from bs4 import BeautifulSoup # pip install bs4 # parse web, obtain data 
 import mysql.connector
 from mysql.connector import errorcode
+# import xlwt # excel
 
 
 def start():
@@ -34,7 +34,7 @@ def start():
 
     total_like_str = re.search('"edge_hashtag_to_media":{"count":(\d+)', jsonstr).group(0) #
     tottal_like_count : int = int(total_like_str.split(':')[2]) # Milestone
-    print('Total likes: \t' + str(tottal_like_count)) 
+    print('\n\tTotal likes: \t' + str(tottal_like_count) + '\n') 
 
     toppost_str = re.search('"edge_hashtag_to_top_posts":.*},"edge_hashtag_to_content_advisory', jsonstr).group(0)[28 : -34] # shameful hard coded # print(toppost_str)
     toppost_dicts = json.loads(toppost_str)
@@ -49,7 +49,7 @@ def start():
             + str(dict["node"]["edge_liked_by"]["count"]) + '\t'
             + str(dict["node"]["edge_media_to_comment"]["count"]) + '\t\t'
             + datetime.utcfromtimestamp(dict["node"]["taken_at_timestamp"]).strftime('%Y-%m-%d')
-        ) 
+        ) # for display only 
 
 
 # 3. save data to DB
@@ -74,20 +74,38 @@ def start():
     try: 
         cursor.execute(''' 
             CREATE TABLE IF NOT EXISTS `hashtag` (
-            `id` int(11) NOT NULL,
+            `numPost` int(12) NOT NULL,
             `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
             `createDate` datetime NOT NULL DEFAULT current_timestamp()
             ) 
         ''')
+        # `top9PostId` varchar(50) COLLATE
+        
     except mysql.connector.Error as e: 
         print("Table error: ")
         print(e.msg)
         pass 
     
     # Insert, modification of table 01: 
+    add_tag = ("INSERT INTO hashtag "
+                        "(name, numPost, createDate) "
+                        "VALUES (%(name)s, %(numPost)s, %(createDate)s)")
     
+    # data set for test only, TODO: data feeder implementation
+    data_tag = {
+        'name':       tag_name,
+        'numPost':    tottal_like_count,
+        'createDate': date(2021, 1, 1)
+    }
     
+    cursor.execute(add_tag, data_tag)
     
+    cursor.execute('''
+        ALTER TABLE `hashtag`
+        ADD PRIMARY KEY (`name`);
+    ''')
+    
+    conn.commit()
     cursor.close()
     conn.close()
 
@@ -131,7 +149,7 @@ def get_content_url(url): # return page source HTML
     html = ""
 
     try:
-        response = urllib.request.urlopen(request, timeout = 3)
+        response = urllib.request.urlopen(request, timeout = 4)
         html = response.read().decode("utf-8")
         #print(html) # For display only 
     except urllib.error.URLError as e:
