@@ -1,0 +1,1069 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-01-21 Thu 22:53 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>IP REPORT 02</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Li Shihao" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">IP REPORT 02</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org6b8b335">1. Introduction</a></li>
+<li><a href="#orge9000ef">2. Python Scrapper 🔗</a>
+<ul>
+<li><a href="#org3d77be0">2.1. Basic set up</a></li>
+<li><a href="#org803ad7e">2.2. Dependencies</a></li>
+<li><a href="#orga7fe7ed">2.3. Logic</a>
+<ul>
+<li><a href="#org35b9fee">2.3.1. <span class="todo HOLD">HOLD</span> Get the content of the webpage</a></li>
+<li><a href="#org26a1439">2.3.2. Parse the JSON string</a></li>
+<li><a href="#orgd5a9689">2.3.3. <span class="todo STRT">STRT</span> Database manipulation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgab8bda0">3. <span class="todo WAIT">WAIT</span> Database design</a></li>
+<li><a href="#orgd93a474">4. Future planning and challenges</a>
+<ul>
+<li><a href="#org3461e83">4.1. <span class="done KILL">KILL</span> Login and maintain the session?</a></li>
+<li><a href="#org8396d34">4.2. <span class="todo WAIT">WAIT</span> Database design</a></li>
+<li><a href="#org9e92d2f">4.3. <span class="todo TODO">TODO</span> Nautural language dictionary?</a></li>
+</ul>
+</li>
+<li><a href="#org4f812e3">5. Misc reflections</a>
+<ul>
+<li><a href="#orgd78973b">5.1. Easy way to start may not be the best way</a></li>
+<li><a href="#org42cb2b9">5.2. Docs writting</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<p>
+A static html file is available for download <a href="https://www.dropbox.com/s/j3qqvshr22wg0ta/IP_report02_LiShihao.html?dl=0">here</a> for the better reading experience in a
+browser. Highly recommend.
+</p>
+
+<div id="outline-container-org6b8b335" class="outline-2">
+<h2 id="org6b8b335"><span class="section-number-2">1</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+A quick recap, this project aims to build an Instagram hashtag
+recommender that suggests less hot alternatives based on the given hashtag.
+The main structure is to have 3 components: a Python web scrapper that
+stripes relevant info from Instagram and store the info into Database, a MySQL
+database, an JavaScript interface for user interaction and data
+retrieval from database. In this report, it will mainly focus on the
+progress made for the Python scrapper and the database table design.
+</p>
+
+<p>
+So far, my role is to build a backend scrapper logic <i>without</i> using
+<code>selenium</code> package which demostrated in previous presnetaion.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge9000ef" class="outline-2">
+<h2 id="orge9000ef"><span class="section-number-2">2</span> <a href="https://github.com/instagram-hashtag-analyzer/instascrapper-code">Python Scrapper 🔗</a></h2>
+<div class="outline-text-2" id="text-2">
+<p>
+So far the <code>mainlogic.py</code> is a fully functional command line tool to print out
+the top 9 posts info of the input hashtag, kindly try it out. (potential
+failure <a id="org0b71565"></a>: I included my cookie string in the headers object for the web access,
+in order to stay login &#x2013; FaceBook limits the number of search without login, may
+not work for other PC)
+</p>
+</div>
+
+<div id="outline-container-org3d77be0" class="outline-3">
+<h3 id="org3d77be0"><span class="section-number-3">2.1</span> Basic set up</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Python environment set up as below:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">li@intel ~ % python --version
+Python 3.8.5
+li@intel ~ % which python
+/Users/li/.pyenv/shims/python
+li@intel ~ % pip --version
+pip 20.3.3 from /Users/li/.pyenv/versions/3.8.5/lib/python3.8/site-packages/pip <span style="color: #51afef;">(</span>python <span style="color: #da8548; font-weight: bold;">3.8</span><span style="color: #51afef;">)</span>
+li@intel ~ % which pip
+pip: aliased to /Users/li/.pyenv/versions/3.8.5/bin/pip
+li@intel ~ %
+</pre>
+</div>
+
+<p>
+<code>pyenv</code> is used to manage the default python version on my system, and <code>pip</code> as
+the package manager.
+</p>
+
+<p>
+Create a pyton file in the working directory (where <code>.git</code> locates too) called
+<code>mainlogic.py</code>, which stores the main steps needed
+for the scrapper. The entry point of the program is defined as below:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python" id="org7668838"><span style="color: #51afef;">if</span> <span style="color: #c678dd;">__name__</span> == <span style="color: #98be65;">"__main__"</span>:
+    <span style="color: #dcaeea;">start_time</span> = time.time()
+    start()
+    <span style="color: #51afef;">print</span>(<span style="color: #98be65;">"-- execution time: %ss --"</span> % (time.time() - start_time))
+</pre>
+</div>
+<p>
+The time function here is to calculate the program run time for internal use.
+Logic will be put into <code>start()</code> function with each step to abstracted into
+function as possible.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org803ad7e" class="outline-3">
+<h3 id="org803ad7e"><span class="section-number-3">2.2</span> Dependencies</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+The packages used as below:
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #51afef;">import</span> urllib.request
+<span style="color: #51afef;">import</span> urllib.error <span style="color: #5B6268;"># </span><span style="color: #5B6268;">get webpage by URL</span>
+<span style="color: #51afef;">import</span> re
+<span style="color: #51afef;">import</span> json
+<span style="color: #51afef;">import</span> time
+<span style="color: #51afef;">from</span> datetime <span style="color: #51afef;">import</span> datetime, date
+<span style="color: #51afef;">from</span> bs4 <span style="color: #51afef;">import</span> BeautifulSoup <span style="color: #5B6268;"># </span><span style="color: #5B6268;">python -m pip install bs4 # parse web, obtain data</span>
+<span style="color: #51afef;">import</span> mysql.connector
+<span style="color: #51afef;">from</span> mysql.connector <span style="color: #51afef;">import</span> errorcode
+</pre>
+</div>
+<p>
+<a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">BeautifulSoup</a>(4.9.3) and <a href="https://dev.mysql.com/doc/connector-python/en/">mysql-connector-python</a>(8.0.22) are the packages that
+not included in Python3 by default, the rest comes with Python. In the <a href="https://github.com/instagram-hashtag-analyzer/instascrapper-code">GitHub
+repository</a>, <code>requirement.txt</code> file is provided for installing the dependencies,
+which is generated by <code>pip freeze</code>, therefore extra packages are included
+unnecessarily at the moment.
+</p>
+
+<p>
+To install the dependencies, <code>cd</code> to the working directory and type below command:
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">python -m pip install -r requirements.txt
+</pre>
+</div>
+<p>
+Notice that <code>selenium</code> package is not required in this approach.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga7fe7ed" class="outline-3">
+<h3 id="orga7fe7ed"><span class="section-number-3">2.3</span> Logic</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+The main logic of the scrapper is comprised of below parts:
+</p>
+<ol class="org-ol">
+<li>Get the content of the desired webpage</li>
+<li>Parse the content to pull only the relevant info</li>
+<li>Save the info to a DataBase</li>
+</ol>
+</div>
+
+<div id="outline-container-org35b9fee" class="outline-4">
+<h4 id="org35b9fee"><span class="section-number-4">2.3.1</span> <span class="todo HOLD">HOLD</span> Get the content of the webpage</h4>
+<div class="outline-text-4" id="text-2-3-1">
+<p>
+First we notice that to search a hashtag, the url is always &ldquo;<a href="https://www.instagram.com/explore/tags/">https://www.instagram.com/explore/tags/</a> <i>SomeHashtag</i>&rdquo;. We need to access the url
+and rip the HTML of it. A function <code>get_content_url(url)</code> is defined for that
+purpose, take url as parameter and return the whole HTML:
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #51afef;">def</span> <span style="color: #c678dd;">get_content_url</span>(url): <span style="color: #5B6268;"># </span><span style="color: #5B6268;">return page source HTML</span>
+
+    <span style="color: #dcaeea;">data</span> = <span style="color: #c678dd;">bytes</span>(urllib.parse.urlencode({<span style="color: #98be65;">'name'</span>: <span style="color: #98be65;">'user'</span>}), encoding = <span style="color: #98be65;">"utf-8"</span>)
+
+    <span style="color: #dcaeea;">cookie</span> = <span style="color: #98be65;">'''csrftoken=LqWwmIYutdVdjfZs19lC21UJxj328lHe; ds_user_id=145399310; rur=PRN; urlgen="{\"58.182.45.73\": 55430}:1kmHZR:gTUeuOkl2OpGz-awwXp_sjFVPXs"; shbid=9296; shbts=1607340966.1711164; sessionid=145399310%3AAgVenBkUyalwhw%3A24; ig_nrcb=1; ig_did=160650D6-C2A1-47CA-B84F-1CABBEDE7C6C; mid=X0zm8AAEAAEZtMalVoXXLUz_kkgL'''</span>
+
+    <span style="color: #dcaeea;">headers</span> = {
+        <span style="color: #98be65;">"User-Agent"</span>: <span style="color: #98be65;">"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"</span>,
+        <span style="color: #98be65;">"Cookie"</span>: cookie
+    }
+
+    <span style="color: #dcaeea;">request</span> = urllib.request.Request(url=url, data=data, headers=headers, method=<span style="color: #98be65;">"POST"</span>) <span style="color: #5B6268;"># </span><span style="color: #5B6268;">fine to be GET without data</span>
+
+    <span style="color: #dcaeea;">html</span> = <span style="color: #98be65;">""</span>
+
+    <span style="color: #51afef;">try</span>:
+        <span style="color: #dcaeea;">response</span> = urllib.request.urlopen(request, timeout = <span style="color: #da8548; font-weight: bold;">4</span>)
+        <span style="color: #dcaeea;">html</span> = response.read().decode(<span style="color: #98be65;">"utf-8"</span>)
+        <span style="color: #5B6268;">#</span><span style="color: #5B6268;">print(html) # For display only</span>
+    <span style="color: #51afef;">except</span> urllib.error.URLError <span style="color: #51afef;">as</span> e:
+        <span style="color: #51afef;">if</span> <span style="color: #c678dd;">hasattr</span>(e, <span style="color: #98be65;">"code"</span>):
+            <span style="color: #51afef;">print</span>(e.code)
+        <span style="color: #51afef;">if</span> <span style="color: #c678dd;">hasattr</span>(e, <span style="color: #98be65;">"reason"</span>):
+            <span style="color: #51afef;">print</span>(e.reason)
+
+    <span style="color: #51afef;">return</span> html
+</pre>
+</div>
+<p>
+It basically fakes the identity as a browser to exchange the header file during
+the network request process, by making use of the <code>urllib</code> package&rsquo;s URL request
+function, in this case HTTP POST is used.
+After looking into the HTML, I found that the relevant info, of the top 9 posts,
+is actually embeded in an extremely long JSON string, below attach a tiny
+fraction of it:
+</p>
+<div class="org-src-container">
+<pre class="src src-html">&lt;<span style="color: #c678dd;">script</span> <span style="color: #dcaeea;">type</span>=<span style="color: #98be65;">"text/javascript"</span>&gt;window._sharedData = {"config":{"csrf_token":"LqWwmIYutdVdjfZs19lC21UJxj328lHe","viewer":{"biography":"","category_name":null,"external_url":null,"fbid":"17841401659302271","full_name":"\u524d\u65b9\u306e\u98ce","has_phone_number":true,"has_profile_pic":true,"has_tabbed_inbox":false,"id":"145399310","is_joined_recently":false,"is_private":false,"is_professional_account":false,"profile_pic_url":"https://instagram.fsin1-1.fna.fbcdn.net/v/t51.2885-19/11909348_1462841624021763_840604754_a.jpg?_nc_ht=instagram.fsin1-1.fna.fbcdn.net\u0026_nc_ohc=mwELOcJd8V4AX_dSLDO\u0026oh=5b1ccf765bae47475ac626f2dbf8ef40\u0026oe=602DD427","profile_pic_url_hd":"https://instagram.fsin1-1.fna.fbcdn.net/v/t51.2885-19/11909348_1462841624021763_840604754_a.jpg?_nc_ht=instagram.fsin1-1.fna.fbcdn.net\u0026_nc_ohc=mwELOcJd8V4AX_dSLDO\u0026oh=5b1ccf765bae47475ac626f2dbf8ef40\u0026oe=602DD427","should_show_category":false,"username":"shly0718","badge_count":"{\"seq_id\": 836, \"badge_count\": 0, \"badge_count_at_ms\": 1610866480067}"},"viewerId":"145399310"},"country_code":"SG","language_code":"en","locale":"en_US","entry_data":{"TagPage":[{"graphql":{"hashtag":{"id":"17843958460043944","name":"apple","allow_following":true,"is_following":false,"is_top_media_only":false,"profile_pic_url":"https://instagram.fsin1-1.fna.fbcdn.net/v/t51.2885-15/e35/s150x150/139246320_235310888105678_4224857578424497632_n.jpg?_nc_ht=instagram.fsin1-1.fna.fbcdn.net\u0026_nc_cat=102\u0026_nc_ohc=GxelIGXlp2wAX8GR2Qs\u0026tp=1\u0026oh=eaa144b23758e5efd656b410ac8c92b7\u0026oe=602CA56A","edge_hashtag_to_media":{"count":35435496,"page_info":
+</pre>
+</div>
+<p>
+Which means there is parsor mechanism built in the browser, or the JavaScrit on the
+page to interprate it, so that the page can&rsquo;t be loaded with information like
+number of likes and comments.
+</p>
+
+<p>
+So instead of the whole page of HTML, let&rsquo;s trim the JSON string instead, below
+<code>get_tagpage_json</code> wraps the <code>get_content_url</code> function, then use the
+<code>BeautifulSoup</code> package to parse the HTML to locate to the desired keyword
+argument, the content under 4<sup>th</sup> <code>&lt;script type ="text/javascript"&gt;</code> in this case.
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #51afef;">def</span> <span style="color: #c678dd;">get_tagpage_json</span>(tag_url):
+    <span style="color: #dcaeea;">html</span> = get_content_url(tag_url)
+
+    <span style="color: #dcaeea;">soup</span> = BeautifulSoup(html, <span style="color: #98be65;">"html.parser"</span>) <span style="color: #5B6268;"># </span><span style="color: #5B6268;">parser object</span>
+
+    <span style="color: #dcaeea;">list_scrpit</span> = soup.find_all(<span style="color: #98be65;">"script"</span>, <span style="color: #c678dd;">type</span>=<span style="color: #98be65;">"text/javascript"</span>)
+
+    <span style="color: #dcaeea;">jsonstr</span> = list_scrpit[<span style="color: #da8548; font-weight: bold;">3</span>].string[<span style="color: #da8548; font-weight: bold;">20</span>:-<span style="color: #da8548; font-weight: bold;">1</span>]
+
+    <span style="color: #51afef;">return</span> jsonstr
+</pre>
+</div>
+<p>
+Putting this function in the main logic body instead of <code>get_content_url</code> makes
+the step 1 cleaner with 1 line code.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org26a1439" class="outline-4">
+<h4 id="org26a1439"><span class="section-number-4">2.3.2</span> Parse the JSON string</h4>
+<div class="outline-text-4" id="text-2-3-2">
+<p>
+So far, we have obtained the JSON string. In this step, we need to search and
+take only the portion we want.
+</p>
+
+<p>
+Here we utilize <code>re</code> package which enables regular expression for searching in
+string. For example, we only need the part where involves the info of top 9
+posts, which is behind keyword &ldquo;edge_hashtag_to_top_posts&rdquo;, I chose to use
+<code>re.search</code> instead of <code>re.findall</code>, because it only matches the first
+occurrence of a pattern, but returns a weird match object. <code>.group(0)</code> used here
+to access the string (hard coded to remove some unwanted characters):
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #dcaeea;">toppost_str</span> = re.search(<span style="color: #98be65;">'"edge_hashtag_to_top_posts":.*},"edge_hashtag_to_content_advisory'</span>, jsonstr).group(<span style="color: #da8548; font-weight: bold;">0</span>)[<span style="color: #da8548; font-weight: bold;">28</span> : -<span style="color: #da8548; font-weight: bold;">34</span>]
+</pre>
+</div>
+<p>
+By the way, the total number of likes of a hashtag is not part of top9 posts
+info, the number is behind keyword &ldquo;edge_hashtag_to_media&rdquo;:
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #dcaeea;">total_like_str</span> = re.search(<span style="color: #98be65;">'"edge_hashtag_to_media":{"count":(\d+)'</span>, jsonstr).group(<span style="color: #da8548; font-weight: bold;">0</span>) <span style="color: #5B6268;">#</span>
+tottal_like_count : <span style="color: #c678dd;">int</span> = <span style="color: #c678dd;">int</span>(total_like_str.split(<span style="color: #98be65;">':'</span>)[<span style="color: #da8548; font-weight: bold;">2</span>]) <span style="color: #5B6268;"># </span><span style="color: #5B6268;">Milestone</span>
+</pre>
+</div>
+
+<p>
+Also to make the JSON string readable, I save the top 9 posts info into a JSON
+file, <code>json.load</code> and <code>json.dump</code> are from <code>json</code> package:
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #dcaeea;">toppost_dicts</span> = json.loads(toppost_str)
+<span style="color: #51afef;">with</span> <span style="color: #c678dd;">open</span>(<span style="color: #98be65;">'raw_top.json'</span>, <span style="color: #98be65;">'w'</span>, encoding=<span style="color: #98be65;">'utf-8'</span>) <span style="color: #51afef;">as</span> jsonfile:
+        json.dump(toppost_dicts, jsonfile, indent=<span style="color: #da8548; font-weight: bold;">4</span>, ensure_ascii=<span style="color: #a9a1e1;">False</span>)
+</pre>
+</div>
+<p>
+The fraction of the file looks like this, I save the file under the same working
+directory, but it&rsquo;s for viewing only, not really essential for the program:
+</p>
+<div class="org-src-container">
+<pre class="src src-json">{
+    <span style="color: #51afef;">"edges"</span>: [
+        {
+            <span style="color: #51afef;">"node"</span>: {
+                <span style="color: #51afef;">"__typename"</span>: <span style="color: #98be65;">"GraphImage"</span>,
+                <span style="color: #51afef;">"id"</span>: "<span style="color: #da8548; font-weight: bold;">2486504591227683678</span>",
+                <span style="color: #51afef;">"edge_media_to_caption"</span>: {
+                    <span style="color: #51afef;">"edges"</span>: [
+                        {
+                            <span style="color: #51afef;">"node"</span>: {
+                                <span style="color: #51afef;">"text"</span>: <span style="color: #98be65;">"Setup for today! \nMaking my favourite Devices Float a lil! &#128540;\nBeen using the Magic keyboard for a long time and still loving it! \n\nAlways keeping a Notepad on my Desk because I like to write and schedule my work/ photo shoots in prior. &#128221;"</span>
+                            }
+                        }
+                    ]
+                },
+                <span style="color: #51afef;">"shortcode"</span>: <span style="color: #98be65;">"CKB1sBsgQNe"</span>,
+                <span style="color: #51afef;">"edge_media_to_comment"</span>: {
+                    <span style="color: #51afef;">"count"</span>: <span style="color: #da8548; font-weight: bold;">44</span>
+                },
+                <span style="color: #51afef;">"taken_at_timestamp"</span>: <span style="color: #da8548; font-weight: bold;">1610634467</span>,
+                <span style="color: #51afef;">"dimensions"</span>: {
+                    <span style="color: #51afef;">"height"</span>: <span style="color: #da8548; font-weight: bold;">1080</span>,
+                    <span style="color: #51afef;">"width"</span>: <span style="color: #da8548; font-weight: bold;">1080</span>
+                },
+                <span style="color: #51afef;">"display_url"</span>: "https://instagram.fsin<span style="color: #a9a1e1;">1</span>-<span style="color: #da8548; font-weight: bold;">1</span>.fna.fbcdn.net/v/t51.<span style="color: #da8548; font-weight: bold;">2885</span>-<span style="color: #da8548; font-weight: bold;">15</span>/e<span style="color: #a9a1e1;">35</span>/s<span style="color: #a9a1e1;">1080</span>x<span style="color: #a9a1e1;">1080</span>/<span style="color: #a9a1e1;">138569923</span>_<span style="color: #a9a1e1;">3783952161643701</span>_<span style="color: #a9a1e1;">8598433727873440451</span>_n.jpg?_nc_ht=instagram.fsin<span style="color: #a9a1e1;">1</span>-<span style="color: #da8548; font-weight: bold;">1</span>.fna.fbcdn.net&amp;_nc_cat=<span style="color: #da8548; font-weight: bold;">109</span>&amp;_nc_ohc=cGCtrdq<span style="color: #a9a1e1;">4</span>XQ<span style="color: #a9a1e1;">0</span>AX-fdJ<span style="color: #a9a1e1;">87</span>&amp;tp=<span style="color: #da8548; font-weight: bold;">1</span>&amp;oh=<span style="color: #a9a1e1;">606618</span>aff<span style="color: #a9a1e1;">214684</span>ac<span style="color: #a9a1e1;">1</span>dbda<span style="color: #a9a1e1;">5</span>e<span style="color: #a9a1e1;">48</span>ca<span style="color: #a9a1e1;">4</span>ab<span style="color: #a9a1e1;">1</span>&amp;oe=<span style="color: #a9a1e1;">6029</span>F<span style="color: #a9a1e1;">015</span>",
+                <span style="color: #51afef;">"edge_liked_by"</span>: {
+                    <span style="color: #51afef;">"count"</span>: <span style="color: #da8548; font-weight: bold;">1062</span>
+                },
+                <span style="color: #51afef;">"edge_media_preview_like"</span>: {
+                    <span style="color: #51afef;">"count"</span>: <span style="color: #da8548; font-weight: bold;">1062</span>
+                },
+                <span style="color: #51afef;">"owner"</span>: {
+                    <span style="color: #51afef;">"id"</span>: "<span style="color: #da8548; font-weight: bold;">362783038</span>"
+                },
+                <span style="color: #51afef;">"thumbnail_src"</span>: "https://instagram.fsin<span style="color: #a9a1e1;">1</span>-<span style="color: #da8548; font-weight: bold;">1</span>.fna.fbcdn.net/v/t51.<span style="color: #da8548; font-weight: bold;">2885</span>-<span style="color: #da8548; font-weight: bold;">15</span>/sh0.<span style="color: #da8548; font-weight: bold;">08</span>/e<span style="color: #a9a1e1;">35</span>/s<span style="color: #a9a1e1;">640</span>x<span style="color: #a9a1e1;">640</span>/<span style="color: #a9a1e1;">138569923</span>_<span style="color: #a9a1e1;">3783952161643701</span>_<span style="color: #a9a1e1;">8598433727873440451</span>_n.jpg?_nc_ht=instagram.fsin<span style="color: #a9a1e1;">1</span>-<span style="color: #da8548; font-weight: bold;">1</span>.fna.fbcdn.net&amp;_nc_cat=<span style="color: #da8548; font-weight: bold;">109</span>&amp;_nc_ohc=cGCtrdq<span style="color: #a9a1e1;">4</span>XQ<span style="color: #a9a1e1;">0</span>AX-fdJ<span style="color: #a9a1e1;">87</span>&amp;tp=<span style="color: #da8548; font-weight: bold;">1</span>&amp;oh=d<span style="color: #a9a1e1;">1</span>a<span style="color: #a9a1e1;">2483</span>a<span style="color: #a9a1e1;">64917</span>efca<span style="color: #a9a1e1;">90</span>d<span style="color: #a9a1e1;">4</span>a<span style="color: #a9a1e1;">6</span>eb<span style="color: #a9a1e1;">8</span>b<span style="color: #a9a1e1;">44690</span>&amp;oe=<span style="color: #a9a1e1;">6029437</span>E",
+</pre>
+</div>
+<p>
+I haven&rsquo;t implemented to store the desired info into variables then DataBase, I
+print to the console as of now, those keywords are pretty self-explanatory:
+</p>
+<div class="org-src-container">
+<pre class="src src-python"> <span style="color: #51afef;">print</span>(<span style="color: #98be65;">"PostID\t\tLikes\tComments\tDate"</span>)
+ <span style="color: #51afef;">for</span> <span style="color: #c678dd;">dict</span> <span style="color: #51afef;">in</span> toppost_dicts[<span style="color: #98be65;">"edges"</span>]:
+     <span style="color: #51afef;">print</span>(<span style="color: #c678dd;">dict</span>[<span style="color: #98be65;">"node"</span>][<span style="color: #98be65;">"shortcode"</span>] + <span style="color: #98be65;">'\t'</span>
+         + <span style="color: #c678dd;">str</span>(<span style="color: #c678dd;">dict</span>[<span style="color: #98be65;">"node"</span>][<span style="color: #98be65;">"edge_liked_by"</span>][<span style="color: #98be65;">"count"</span>]) + <span style="color: #98be65;">'\t'</span>
+         + <span style="color: #c678dd;">str</span>(<span style="color: #c678dd;">dict</span>[<span style="color: #98be65;">"node"</span>][<span style="color: #98be65;">"edge_media_to_comment"</span>][<span style="color: #98be65;">"count"</span>]) + <span style="color: #98be65;">'\t\t'</span>
+         + datetime.utcfromtimestamp(<span style="color: #c678dd;">dict</span>[<span style="color: #98be65;">"node"</span>][<span style="color: #98be65;">"taken_at_timestamp"</span>]).strftime(<span style="color: #98be65;">'%Y-%m-%d'</span>)
+     ) <span style="color: #5B6268;"># </span><span style="color: #5B6268;">for display only</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd5a9689" class="outline-4">
+<h4 id="orgd5a9689"><span class="section-number-4">2.3.3</span> <span class="todo STRT">STRT</span> Database manipulation</h4>
+<div class="outline-text-4" id="text-2-3-3">
+<p>
+The creation of database should be done in backend instead of frontend. So far
+we have create one sample database called <code>explore</code> and a table called
+<code>hashtag</code>. The table attributes so far are just samples, we shall discuss more
+in the next section.
+</p>
+
+<p>
+The database operation relies on <a href="https://dev.mysql.com/doc/connector-python/en/">mysql-connector-python</a> package and its manual.
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="org7374f0c"></a><b>Create database</b><br />
+<div class="outline-text-5" id="text-2-3-3-1">
+<p>
+First I wrote a function to create database and catch the exception if the
+database exists:
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #51afef;">def</span> <span style="color: #c678dd;">create_database</span>(DB_NAME):
+    <span style="color: #51afef;">try</span>:
+        <span style="color: #dcaeea;">newdb</span> = mysql.connector.connect(
+        host     = <span style="color: #98be65;">"localhost"</span>,
+        user     = <span style="color: #98be65;">"root"</span>,
+        password = <span style="color: #98be65;">"TIC3901"</span>
+        )
+
+        <span style="color: #dcaeea;">newcursor</span> = newdb.cursor()
+
+        newcursor.execute(
+            <span style="color: #98be65;">"CREATE DATABASE {};"</span>.<span style="color: #c678dd;">format</span>(DB_NAME))
+        <span style="color: #51afef;">print</span>(<span style="color: #98be65;">"New Database Created!"</span>)
+    <span style="color: #51afef;">except</span> mysql.connector.Error <span style="color: #51afef;">as</span> e:
+        <span style="color: #51afef;">if</span> e.errno == errorcode.ER_ACCESS_DENIED_ERROR:
+            <span style="color: #51afef;">print</span>(<span style="color: #98be65;">"Something is wrong with your user name or password"</span>)
+        <span style="color: #51afef;">else</span>:
+            <span style="color: #51afef;">print</span>(<span style="color: #98be65;">"Preparing Database..."</span>)
+            <span style="color: #51afef;">pass</span>
+</pre>
+</div>
+<p>
+Note that the MySQL&rsquo;s user is `root`, password is `TIC3901`.
+</p>
+</div>
+</li>
+
+
+<li><a id="org7231426"></a><b>Use/connect database</b><br />
+<div class="outline-text-5" id="text-2-3-3-2">
+<p>
+Create connection and cursor in the similiar fashion.
+</p>
+<div class="org-src-container">
+<pre class="src src-python"> <span style="color: #dcaeea;">conn</span> = mysql.connector.connect(
+     host      = <span style="color: #98be65;">"localhost"</span>,
+     user      = <span style="color: #98be65;">"root"</span>,
+     password  = <span style="color: #98be65;">"TIC3901"</span>,
+     database  =  DB_NAME,
+     charset   = <span style="color: #98be65;">"utf8"</span>,
+     collation = <span style="color: #98be65;">"utf8_general_ci"</span>
+ )
+
+ <span style="color: #dcaeea;">cursor</span> = conn.cursor()
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="orgb086ee2"></a><b>Create table (01)</b><br />
+<div class="outline-text-5" id="text-2-3-3-3">
+<p>
+The table attributes design is still up to change.
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #51afef;">try</span>:
+    cursor.execute(<span style="color: #98be65;">'''</span>
+<span style="color: #98be65;">        CREATE TABLE IF NOT EXISTS `hashtag` (</span>
+<span style="color: #98be65;">        `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,</span>
+<span style="color: #98be65;">        `numPost` int(12) NOT NULL,</span>
+<span style="color: #98be65;">        `top9PostId` varchar(50) COLLATE utf8_unicode_ci,</span>
+<span style="color: #98be65;">        `createDate` datetime NOT NULL DEFAULT current_timestamp()</span>
+<span style="color: #98be65;">        )</span>
+<span style="color: #98be65;">    '''</span>)
+
+<span style="color: #51afef;">except</span> mysql.connector.Error <span style="color: #51afef;">as</span> e:
+    <span style="color: #51afef;">print</span>(<span style="color: #98be65;">"Table error: "</span>)
+    <span style="color: #51afef;">print</span>(e.msg)
+    <span style="color: #51afef;">pass</span>
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="org1ee567a"></a><span class="todo TODO">TODO</span> <b>Insert sample data</b><br />
+<div class="outline-text-5" id="text-2-3-3-4">
+<p>
+So far, sample data is tried here to fill the table for testing purpose, seems
+data is able to fill in but no exception handling yet for duplicate entry error.
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #dcaeea;">add_tag</span> = (<span style="color: #98be65;">"INSERT INTO hashtag "</span>
+                    <span style="color: #98be65;">"(name, numPost, createDate) "</span>
+                    <span style="color: #98be65;">"VALUES (%(name)s, %(numPost)s, %(createDate)s)"</span>)
+
+<span style="color: #5B6268;"># </span><span style="color: #5B6268;">data set for test only, </span><span style="color: #ECBE7B; font-weight: bold;">TODO:</span><span style="color: #5B6268;"> data feeder implementation</span>
+<span style="color: #dcaeea;">data_tag</span> = {
+    <span style="color: #98be65;">'name'</span>:       tag_name,
+    <span style="color: #98be65;">'numPost'</span>:    tottal_like_count,
+    <span style="color: #98be65;">'createDate'</span>: date(<span style="color: #da8548; font-weight: bold;">2021</span>, <span style="color: #da8548; font-weight: bold;">1</span>, <span style="color: #da8548; font-weight: bold;">1</span>)
+}
+
+cursor.execute(add_tag, data_tag)
+
+cursor.execute(<span style="color: #98be65;">'''</span>
+<span style="color: #98be65;">    ALTER TABLE `hashtag`</span>
+<span style="color: #98be65;">    ADD PRIMARY KEY (`name`);</span>
+<span style="color: #98be65;">'''</span>)
+
+conn.commit()
+cursor.close()
+conn.close()
+</pre>
+</div>
+
+<p>
+<code>SELECT * FROM hashtag</code> in terminal <code>mysql</code> shows below table:
+</p>
+<!-- This HTML table template is generated by emacs 27.1 -->
+<table border="1">
+  <tr>
+    <td align="left" valign="top">
+      &nbsp;name&nbsp;&nbsp;&nbsp;
+    </td>
+    <td align="left" valign="top">
+      &nbsp;numLike&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+    <td align="left" valign="top">
+      &nbsp;top9PostId&nbsp;
+    </td>
+    <td align="left" valign="top">
+      &nbsp;createDate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">
+      &nbsp;apple&nbsp;&nbsp;<br />
+      &nbsp;love&nbsp;&nbsp;&nbsp;<br />
+      &nbsp;winter&nbsp;
+    </td>
+    <td align="left" valign="top">
+      &nbsp;&nbsp;&nbsp;35465424&nbsp;<br />
+      &nbsp;2000022138&nbsp;<br />
+      &nbsp;&nbsp;147962789&nbsp;
+    </td>
+    <td align="left" valign="top">
+      &nbsp;NULL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+      &nbsp;NULL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+      &nbsp;NULL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+    <td align="left" valign="top">
+      &nbsp;2021-01-01&nbsp;00:00:00&nbsp;<br />
+      &nbsp;2021-01-01&nbsp;00:00:00&nbsp;<br />
+      &nbsp;2021-01-01&nbsp;00:00:00&nbsp;
+    </td>
+  </tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgab8bda0" class="outline-2">
+<h2 id="orgab8bda0"><span class="section-number-2">3</span> <span class="todo WAIT">WAIT</span> Database design</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+The important experience gained from this project is that we should probaly have
+done the database schema design at the very beginning. Once the tables and
+their attributes are fixed, backend and frontend can have better seperation
+without worrying affect each other.
+</p>
+
+<p>
+The table design is still up to discussion, but I&rsquo;d propose as of now:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 1:</span> hashtag</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">name</th>
+<th scope="col" class="org-right">numLike</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">apple</td>
+<td class="org-right">35465424</td>
+</tr>
+
+<tr>
+<td class="org-left">love</td>
+<td class="org-right">2000022138</td>
+</tr>
+
+<tr>
+<td class="org-left">winter</td>
+<td class="org-right">147962789</td>
+</tr>
+</tbody>
+</table>
+<p>
+<code>name</code> should be primary key as each hashtag and the search page URL are unique.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 2:</span> tag-toppost</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">tag_name</th>
+<th scope="col" class="org-left">postId</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">coding</td>
+<td class="org-left"><code>CKQLGFVAo6e</code></td>
+</tr>
+
+<tr>
+<td class="org-left">coding</td>
+<td class="org-left"><code>CKTPbS6A0mg</code></td>
+</tr>
+
+<tr>
+<td class="org-left">coding</td>
+<td class="org-left"><code>CKPFztCDsUO</code></td>
+</tr>
+
+<tr>
+<td class="org-left">coding</td>
+<td class="org-left"><code>CKRtAtvgWFO</code></td>
+</tr>
+
+<tr>
+<td class="org-left">coding</td>
+<td class="org-left"><code>CKRZ13ygtuw</code></td>
+</tr>
+
+<tr>
+<td class="org-left">coding</td>
+<td class="org-left"><code>CKR7KFCFD7d</code></td>
+</tr>
+
+<tr>
+<td class="org-left">coding</td>
+<td class="org-left"><code>CKSs0yfAciw</code></td>
+</tr>
+
+<tr>
+<td class="org-left">coding</td>
+<td class="org-left"><code>CKRLDmaAxmR</code></td>
+</tr>
+
+<tr>
+<td class="org-left">coding</td>
+<td class="org-left"><code>CKSwFaNAsWr</code></td>
+</tr>
+</tbody>
+</table>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 3:</span> toppost</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">postId</th>
+<th scope="col" class="org-right">numLike</th>
+<th scope="col" class="org-right">numComment</th>
+<th scope="col" class="org-right">Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>CKQLGFVAo6e</code></td>
+<td class="org-right">8892</td>
+<td class="org-right">52</td>
+<td class="org-right">2021-01-20</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>CKTPbS6A0mg</code></td>
+<td class="org-right">2799</td>
+<td class="org-right">223</td>
+<td class="org-right">2021-01-21</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>CKPFztCDsUO</code></td>
+<td class="org-right">1426</td>
+<td class="org-right">14</td>
+<td class="org-right">2021-01-19</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Above are the info I can crawl at the moment, I&rsquo;m confident that I&rsquo;m able to
+parse the JSON string, to get the comment section of each post and extract all
+the tags tagged along with the post.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 4:</span> post_contain_tag</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">postId</th>
+<th scope="col" class="org-left">tagname</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>CKPFztCDsUO</code></td>
+<td class="org-left">NULL</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>CJ1d_NZgli1</code></td>
+<td class="org-left">peoplewhocode</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>CJ1d_NZgli1</code></td>
+<td class="org-left">100daysofcode</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>CJ1d_NZgli1</code></td>
+<td class="org-left">buildupdevs</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Not 100% sure if it is the right approach to find the relation to the other
+possible hashtags.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd93a474" class="outline-2">
+<h2 id="orgd93a474"><span class="section-number-2">4</span> Future planning and challenges</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-org3461e83" class="outline-3">
+<h3 id="org3461e83"><span class="section-number-3">4.1</span> <span class="done KILL">KILL</span> Login and maintain the session?</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+As mentioned <a href="#org0b71565">above</a>, because of the Facebook request limitation, we can&rsquo;t keep
+performing searches without login to Instagram. I included my own cookie string
+to the header file, but it&rsquo;s unlikely to work on other machines.
+One way is to have a login page in frontend to input Instagram username and
+password, then my python file can retrive the info to login to the site. From my
+preliminary research, to remain the state of login, <code>requests</code> package is needed
+to create a session.
+Another idea from Hui Yuan is that we could input a list of common hastags, my
+python program would iterate through and feed the data to Database, so users making
+searches in frontend have a high chance to get the existing result directly from
+database, instead of running python scrapper on demand.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8396d34" class="outline-3">
+<h3 id="org8396d34"><span class="section-number-3">4.2</span> <span class="todo WAIT">WAIT</span> Database design</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+To discuss on above schema design idea.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9e92d2f" class="outline-3">
+<h3 id="org9e92d2f"><span class="section-number-3">4.3</span> <span class="todo TODO">TODO</span> Nautural language dictionary?</h3>
+<div class="outline-text-3" id="text-4-3">
+<p>
+From the beginning of the project, I have been struggling to come up with
+anything to tell 2 hashtags having similiar meaning. Because we want to
+recommend to users a set of relevant hashtags if the one they chose was too popular.
+Or does the close meaning of the hashtags really matter much? For example, I saw
+post with <a href="https://www.instagram.com/explore/tags/coding/">#coding</a>, also tagged along with <a href="https://www.instagram.com/explore/tags/linux">#linux</a>, <a href="https://www.instagram.com/explore/tags/java">#java</a>, <a href="https://www.instagram.com/explore/tags/python">#python</a>, <a href="https://www.instagram.com/explore/tags/javascript">#javascript</a>
+and more. You can&rsquo;t say those are of close meaning or high relevancy. We are
+also unlikely to understand the content of what users are going to post other than the
+user input hashtag, so defining the relevancy is already problematic. So shall
+we just ultilise the last table or other measures as the consideration to
+determine the relation between tags?
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4f812e3" class="outline-2">
+<h2 id="org4f812e3"><span class="section-number-2">5</span> Misc reflections</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-orgd78973b" class="outline-3">
+<h3 id="orgd78973b"><span class="section-number-3">5.1</span> Easy way to start may not be the best way</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+There are 6 skill courses come with Industrial Prctice, one of them is to teach
+us using Jupyter Notebook (content is nice and useful). The first preparation was
+to install a software called Anaconda, which hosts the whole environment of what
+we need for the course. So it is very easy and neat as we don&rsquo;t have to get
+hands dirty to install python and so on.
+</p>
+
+<p>
+At the time, I already spent quite some research time to install python
+<a href="https://opensource.com/article/19/5/python-3-default-mac">properly</a> via <code>pyenv</code>, and made the then latest python 3.8.5 and pip 3 as system default.
+Although I must admit that I&rsquo;m lack of knowledge on virtual environments. I
+didn&rsquo;t know that Anaconda comes with python and it takes over as my system&rsquo;s
+default and the <code>conda</code> is another package manager.
+</p>
+
+<p>
+So after the course, at certain point of time, my python program can&rsquo;t run
+properly due to can not find the packages that I import. It took me quite a few
+weeks to realize what was going on.
+</p>
+
+<p>
+Even though some tools are easy to use for beginners, if we don&rsquo;t what happen
+underneath, it&rsquo;s difficult to diagnose the reasons of abnormal behaviors of the
+software system.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org42cb2b9" class="outline-3">
+<h3 id="org42cb2b9"><span class="section-number-3">5.2</span> Docs writting</h3>
+<div class="outline-text-3" id="text-5-2">
+<p>
+In report 01, I didn&rsquo;t know the Indusial Prctice website only takes pdf file for
+uploads. So I wrote the report in markdown and planned to upload the <code>.md</code> file,
+I&rsquo;m sure there are softwares to render markdown beauifully on prof&rsquo;s computer.
+This time, I was planning to write LaTeX as the final format has to be pdf.
+However, HTML may still offer more flexible layout with CSS. So this is my first
+practice to use Emacs Org Mode, despite of the steep learning curve, it
+turns out to be fantastic.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Li Shihao</p>
+<p class="date">Created: 2021-01-21 Thu 22:53</p>
+</div>
+</body>
+</html>
