@@ -60,12 +60,12 @@ def start():
     
     # Use/Connect Database    
     conn = mysql.connector.connect(
-    host      = "localhost",
-    user      = "root",
-    password  = "TIC3901", 
-    database  =  DB_NAME,
-    charset   = "utf8",
-    collation = "utf8_general_ci"
+        host      = "localhost",
+        user      = "root",
+        password  = "TIC3901", 
+        database  =  DB_NAME,
+        charset   = "utf8",
+        collation = "utf8_general_ci"
     )
     
     cursor = conn.cursor()
@@ -80,7 +80,6 @@ def start():
             `createDate` datetime NOT NULL DEFAULT current_timestamp()
             ) 
         ''')
-        # `top9PostId` varchar(50) COLLATE
         
     except mysql.connector.Error as e: 
         print("Table error: ")
@@ -98,13 +97,16 @@ def start():
         'numPost':    tottal_like_count,
         'createDate': date(2021, 1, 1)
     }
+    try:
+        cursor.execute(add_tag, data_tag)
+        cursor.execute('''
+            ALTER TABLE `hashtag`
+            ADD PRIMARY KEY (`name`);
+        ''')
+    except mysql.connector.IntegrityError:
+        pass
     
-    cursor.execute(add_tag, data_tag)
-    
-    cursor.execute('''
-        ALTER TABLE `hashtag`
-        ADD PRIMARY KEY (`name`);
-    ''')
+
     
     conn.commit()
     cursor.close()
