@@ -196,6 +196,48 @@ if __name__ == "__main__":
 
 
 
+
+##+CAPTION: tag_like
+#| name   |    numLike |
+#|--------+------------|
+#| apple  |   35465424 |
+#| love   | 2000022138 |
+#| winter |  147962789 |
+#=name= should be primary key as each hashtag and the search page URL are unique.
+#
+##+CAPTION: tag_toppost
+#| tag_name | postId        |
+#|----------+---------------|
+#| coding   | =CKQLGFVAo6e= |
+#| coding   | =CKTPbS6A0mg= |
+#| coding   | =CKPFztCDsUO= |
+#| coding   | =CKRtAtvgWFO= |
+#| coding   | =CKRZ13ygtuw= |
+#| coding   | =CKR7KFCFD7d= |
+#| coding   | =CKSs0yfAciw= |
+#| coding   | =CKRLDmaAxmR= |
+#| coding   | =CKSwFaNAsWr= |
+#
+##+CAPTION:toppost_info
+#| postId        | numLike | numComment |       Date |
+#|---------------+---------+------------+------------|
+#| =CKQLGFVAo6e= |    8892 |         52 | 2021-01-20 |
+#| =CKTPbS6A0mg= |    2799 |        223 | 2021-01-21 |
+#| =CKPFztCDsUO= |    1426 |         14 | 2021-01-19 |
+#
+#
+##+CAPTION: post_contain_tag
+#| postId        | tagname       |
+#|---------------+---------------|
+#| =CKPFztCDsUO= | NULL          |
+#| =CJ1d_NZgli1= | peoplewhocode |
+#| =CJ1d_NZgli1= | 100daysofcode |
+#| =CJ1d_NZgli1= | buildupdevs   |
+
+
+
+
+
 '''
 def sum (n): 
     if n == 0: 
