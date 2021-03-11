@@ -12,6 +12,14 @@ from mysql.connector import errorcode
 # import xlwt # excel
 from webreader import get_tagpage_json
 from db_operation import create_database
+from db_operation import create_tables
+from db_operation import insert_tag_like
+from jparser import total_like_of
+from jparser import create_top9infolist
+
+
+
+
 
 def start():
 
@@ -33,25 +41,28 @@ def start():
 
 # 2. parsing
 
-    total_like_str = re.search('"edge_hashtag_to_media":{"count":(\d+)', jsonstr).group(0) #
-    total_like_count : int = int(total_like_str.split(':')[2]) # Milestone
-    print('\n\tTotal likes: \t' + str(total_like_count) + '\n') 
+#    total_like_str = re.search('"edge_hashtag_to_media":{"count":(\d+)', jsonstr).group(0) #
+#    total_like_count : int = int(total_like_str.split(':')[2]) # Milestone
+#    print('\n\tTotal likes: \t' + str(total_like_count) + '\n') 
+#
+#    toppost_str = re.search('"edge_hashtag_to_top_posts":.*},"edge_hashtag_to_content_advisory', jsonstr).group(0)[28 : -34] # shameful hard coded # print(toppost_str)
+#    toppost_dicts = json.loads(toppost_str)
+#    with open('raw_top.json', 'w', encoding='utf-8') as jsonfile:
+#        json.dump(toppost_dicts, jsonfile, indent=4, ensure_ascii=False) 
+#
+#    # print(toppost_dicts["edges"][0]["node"])
+#
+#    print("PostID\t\tLikes\tComments\tDate")
+#    for dict in toppost_dicts["edges"]:
+#        print(dict["node"]["shortcode"] + '\t' 
+#            + str(dict["node"]["edge_liked_by"]["count"]) + '\t'
+#            + str(dict["node"]["edge_media_to_comment"]["count"]) + '\t\t'
+#            + datetime.utcfromtimestamp(dict["node"]["taken_at_timestamp"]).strftime('%Y-%m-%d')
+#        ) # for display only 
 
-    toppost_str = re.search('"edge_hashtag_to_top_posts":.*},"edge_hashtag_to_content_advisory', jsonstr).group(0)[28 : -34] # shameful hard coded # print(toppost_str)
-    toppost_dicts = json.loads(toppost_str)
-    with open('raw_top.json', 'w', encoding='utf-8') as jsonfile:
-        json.dump(toppost_dicts, jsonfile, indent=4, ensure_ascii=False) 
-
-    # print(toppost_dicts["edges"][0]["node"])
-
-    print("PostID\t\tLikes\tComments\tDate")
-    for dict in toppost_dicts["edges"]:
-        print(dict["node"]["shortcode"] + '\t' 
-            + str(dict["node"]["edge_liked_by"]["count"]) + '\t'
-            + str(dict["node"]["edge_media_to_comment"]["count"]) + '\t\t'
-            + datetime.utcfromtimestamp(dict["node"]["taken_at_timestamp"]).strftime('%Y-%m-%d')
-        ) # for display only 
-
+    total_like_count : int = total_like_of(jsonstr)
+    top9infolist = create_top9infolist(jsonstr)
+    
 
 # 3. save data to DB
     
@@ -72,35 +83,11 @@ def start():
     cursor = conn.cursor()
     
     # Create Table 01:    `tag_like`
-    try: 
-        cursor.execute(''' 
-            CREATE TABLE IF NOT EXISTS `tag_like` (
-            `tagname` varchar(50) COLLATE utf8_unicode_ci NOT NULL PRIMARY KEY,
-            `numLike` int(12) NOT NULL
-            ) 
-        ''')
-        
-    except mysql.connector.Error as e: 
-        print("Table error: ")
-        print(e.msg)
-        pass 
+    create_tables(cursor)
     
     # Insert, modification of table 01: 
-    add_tag = ("INSERT INTO tag_like "
-                        "(tagname, numLike) "
-                        "VALUES (%(name)s, %(numLike)s)")
-    
-    # data set for test only, TODO: data feeder implementation
-    data_tag = {
-        'name':       tag_name,
-        'numLike':    total_like_count,
-    }
-    try:
-        cursor.execute(add_tag, data_tag)
 
-    except mysql.connector.IntegrityError:
-        pass
-    
+    insert_tag_like(cursor, tag_name, total_like_count)
 
 
     conn.commit()
@@ -113,27 +100,7 @@ def start():
 
 ## Function Definition: 
 #def create_database(DB_NAME): 
-#    try: 
-#        newdb = mysql.connector.connect(
-#        host     = "localhost",
-#        user     = "root",
-#        password = "TIC3901"
-#        )
-#        
-#        newcursor = newdb.cursor()
-#        
-#        newcursor.execute(
-#            "CREATE DATABASE {};".format(DB_NAME))
-#        print("New Database Created!")
-#    except mysql.connector.Error as e: 
-#        if e.errno == errorcode.ER_ACCESS_DENIED_ERROR:
-#            print("Something is wrong with your user name or password")
-#        else: 
-#            print("Preparing Database...")
-#            pass
-            
-            
-            
+
 
 
 if __name__ == "__main__":
