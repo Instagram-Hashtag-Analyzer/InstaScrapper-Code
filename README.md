@@ -16,4 +16,6 @@ Dependencies:
 
 `python -m pip install -r requirements.txt` to install dependencies. 
 I just `pip freeze` to the file, probably I should manually update `requirements.txt` to only include relevant packages.
-(may no need `virtualenv`) 
+
+
+Kindly run `mainlogic.py` as the `"__main__"` is inside there. 
