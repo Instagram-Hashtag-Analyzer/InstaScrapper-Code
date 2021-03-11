@@ -34,8 +34,8 @@ def start():
 # 2. parsing
 
     total_like_str = re.search('"edge_hashtag_to_media":{"count":(\d+)', jsonstr).group(0) #
-    tottal_like_count : int = int(total_like_str.split(':')[2]) # Milestone
-    print('\n\tTotal likes: \t' + str(tottal_like_count) + '\n') 
+    total_like_count : int = int(total_like_str.split(':')[2]) # Milestone
+    print('\n\tTotal likes: \t' + str(total_like_count) + '\n') 
 
     toppost_str = re.search('"edge_hashtag_to_top_posts":.*},"edge_hashtag_to_content_advisory', jsonstr).group(0)[28 : -34] # shameful hard coded # print(toppost_str)
     toppost_dicts = json.loads(toppost_str)
@@ -74,11 +74,9 @@ def start():
     # Create Table 01:    `tag_like`
     try: 
         cursor.execute(''' 
-            CREATE TABLE IF NOT EXISTS `hashtag` (
-            `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-            `numPost` int(12) NOT NULL,
-            `top9PostId` varchar(50) COLLATE utf8_unicode_ci,
-            `createDate` datetime NOT NULL DEFAULT current_timestamp()
+            CREATE TABLE IF NOT EXISTS `tag_like` (
+            `tagname` varchar(50) COLLATE utf8_unicode_ci NOT NULL PRIMARY KEY,
+            `numLike` int(12) NOT NULL
             ) 
         ''')
         
@@ -88,31 +86,30 @@ def start():
         pass 
     
     # Insert, modification of table 01: 
-    add_tag = ("INSERT INTO hashtag "
-                        "(name, numPost, createDate) "
-                        "VALUES (%(name)s, %(numPost)s, %(createDate)s)")
+    add_tag = ("INSERT INTO tag_like "
+                        "(tagname, numLike) "
+                        "VALUES (%(name)s, %(numLike)s)")
     
     # data set for test only, TODO: data feeder implementation
     data_tag = {
         'name':       tag_name,
-        'numPost':    tottal_like_count,
-        'createDate': date(2021, 1, 1)
+        'numLike':    total_like_count,
     }
     try:
         cursor.execute(add_tag, data_tag)
-        cursor.execute('''
-            ALTER TABLE `hashtag`
-            ADD PRIMARY KEY (`name`);
-        ''')
+
     except mysql.connector.IntegrityError:
         pass
     
 
-    
+
     conn.commit()
     cursor.close()
     conn.close()
 
+
+#`top9PostId` varchar(50) COLLATE utf8_unicode_ci,
+#`createDate` datetime NOT NULL DEFAULT current_timestamp()
 
 ## Function Definition: 
 #def create_database(DB_NAME): 
@@ -148,12 +145,12 @@ if __name__ == "__main__":
 
 
 
-##+CAPTION: tag_like
-#| name   |    numLike |
-#|--------+------------|
-#| apple  |   35465424 |
-#| love   | 2000022138 |
-#| winter |  147962789 |
+##+CAPTION: tag_
+#| tagname   |    numLike | 
+#|-----------+------------|
+#| apple     |   35465424 |
+#| love      | 2000022138 |
+#| winter    |  147962789 |
 #=name= should be primary key as each hashtag and the search page URL are unique.
 #
 ##+CAPTION: tag_toppost
