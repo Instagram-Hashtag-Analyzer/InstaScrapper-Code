@@ -28,7 +28,7 @@ def create_top9infolist(jsonstr):
 #		"TAG?"
 #	}
 	
-	newdict = {}
+
 	returndictlist = []
 	
 	print("PostID\t\tLikes\tComments\tDate")
@@ -39,6 +39,7 @@ def create_top9infolist(jsonstr):
 		numComment = str(jdict["node"]["edge_media_to_comment"]["count"])
 		date = datetime.utcfromtimestamp(jdict["node"]["taken_at_timestamp"]).strftime('%Y-%m-%d')
 		
+		newdict = {}
 		newdict["postId"] = postId
 		newdict["numLike"] = numLike
 		newdict["numComment"] = numComment

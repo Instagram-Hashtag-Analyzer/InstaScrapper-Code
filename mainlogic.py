@@ -71,8 +71,7 @@ def start():
 
     insert_tag_like(cursor, tag_name, total_like_count)
     
-    for dict in top9infolist:
-        insert_tag_toppost(cursor, tag_name, dict["postId"])
+    insert_tag_toppost(cursor, tag_name, top9infolist)
         
     
 
