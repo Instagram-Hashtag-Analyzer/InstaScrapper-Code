@@ -24,6 +24,46 @@ def create_database(DB_NAME):
 			print("Preparing Database...")
 			pass
 
+		
+def insert_tag_like(cursor, tagname, total_like_count): 
+	add_tag = ("INSERT INTO tag_like "
+						"(tagname, numLike) "
+						"VALUES (%(tagname)s, %(numLike)s)")
+	
+	# data set for test only, DONE: data feeder implementation
+	data_tag = {
+		'tagname':    tagname,
+		'numLike':    total_like_count,
+	}
+	try:
+		cursor.execute(add_tag, data_tag)
+		
+	except mysql.connector.IntegrityError:
+		add_tag = ("UPDATE tag_like "
+							"SET numLike = %(numLike)s WHERE tagname = %(tagname)s")
+		data_tag = {
+			'tagname':    tagname,
+			'numLike':    total_like_count,
+		}
+		cursor.execute(add_tag, data_tag)
+		
+def insert_tag_toppost(cursor, tagname, postId): 
+	add_tag = ("INSERT INTO tag_toppost "
+						"(tagname, postId) "
+						"VALUES (%(tagname)s, %(postId)s)")
+	
+	# data set for test only, DONE: data feeder implementation
+	data_tag = {
+		'tagname':    tagname,
+		'postId':     postId,
+	}
+	try:
+		cursor.execute(add_tag, data_tag)
+		
+	except mysql.connector.IntegrityError:
+		pass
+
+
 def create_tables(cursor):
 	try: 
 		cursor.execute(''' 
@@ -38,18 +78,15 @@ def create_tables(cursor):
 		print(e.msg)
 		pass 
 		
-def insert_tag_like(cursor, tag_name, total_like_count): 
-	add_tag = ("INSERT INTO tag_like "
-						"(tagname, numLike) "
-						"VALUES (%(name)s, %(numLike)s)")
-	
-	# data set for test only, DONE: data feeder implementation
-	data_tag = {
-		'name':       tag_name,
-		'numLike':    total_like_count,
-	}
-	try:
-		cursor.execute(add_tag, data_tag)
+	try: 
+		cursor.execute(''' 
+			CREATE TABLE IF NOT EXISTS `tag_toppost` (
+			`tagname` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+			`postId` char(11) NOT NULL
+			) 
+		''')
 		
-	except mysql.connector.IntegrityError:
-		pass
+	except mysql.connector.Error as e: 
+		print("Table error: ")
+		print(e.msg)
+		pass 

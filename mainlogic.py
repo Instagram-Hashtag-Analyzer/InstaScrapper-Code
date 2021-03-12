@@ -2,8 +2,8 @@
 
 #import urllib.request
 #import urllib.error # get webpage by URL
-import re
-import json
+#import re
+#import json
 import time
 from datetime import datetime, date
 #from bs4 import BeautifulSoup # pip install bs4 # parse web, obtain data 
@@ -14,6 +14,7 @@ from webreader import get_tagpage_json
 from db_operation import create_database
 from db_operation import create_tables
 from db_operation import insert_tag_like
+from db_operation import insert_tag_toppost
 from jparser import total_like_of
 from jparser import create_top9infolist
 
@@ -41,26 +42,7 @@ def start():
 
 # 2. parsing
 
-#    total_like_str = re.search('"edge_hashtag_to_media":{"count":(\d+)', jsonstr).group(0) #
-#    total_like_count : int = int(total_like_str.split(':')[2]) # Milestone
-#    print('\n\tTotal likes: \t' + str(total_like_count) + '\n') 
-#
-#    toppost_str = re.search('"edge_hashtag_to_top_posts":.*},"edge_hashtag_to_content_advisory', jsonstr).group(0)[28 : -34] # shameful hard coded # print(toppost_str)
-#    toppost_dicts = json.loads(toppost_str)
-#    with open('raw_top.json', 'w', encoding='utf-8') as jsonfile:
-#        json.dump(toppost_dicts, jsonfile, indent=4, ensure_ascii=False) 
-#
-#    # print(toppost_dicts["edges"][0]["node"])
-#
-#    print("PostID\t\tLikes\tComments\tDate")
-#    for dict in toppost_dicts["edges"]:
-#        print(dict["node"]["shortcode"] + '\t' 
-#            + str(dict["node"]["edge_liked_by"]["count"]) + '\t'
-#            + str(dict["node"]["edge_media_to_comment"]["count"]) + '\t\t'
-#            + datetime.utcfromtimestamp(dict["node"]["taken_at_timestamp"]).strftime('%Y-%m-%d')
-#        ) # for display only 
-
-    total_like_count : int = total_like_of(jsonstr)
+    total_like_count : int = total_like_of(jsonstr) # not elegent 
     top9infolist = create_top9infolist(jsonstr)
     
 
@@ -88,6 +70,11 @@ def start():
     # Insert, modification of table 01: 
 
     insert_tag_like(cursor, tag_name, total_like_count)
+    
+    for dict in top9infolist:
+        insert_tag_toppost(cursor, tag_name, dict["postId"])
+        
+    
 
 
     conn.commit()
