@@ -39,11 +39,15 @@ def create_top9infolist(jsonstr):
 		numComment = str(jdict["node"]["edge_media_to_comment"]["count"])
 		date = datetime.utcfromtimestamp(jdict["node"]["taken_at_timestamp"]).strftime('%Y-%m-%d')
 		
+		comment = jdict["node"]["edge_media_to_caption"]["edges"][0]["node"]["text"]
+		tags = re.findall('\B#\w\w+', comment)
+		
 		newdict = {}
 		newdict["postId"] = postId
 		newdict["numLike"] = numLike
 		newdict["numComment"] = numComment
 		newdict["date"] = date
+		newdict["tags"] = tags
 		
 		returndictlist.append(newdict)
 				
@@ -51,6 +55,9 @@ def create_top9infolist(jsonstr):
 			+ numLike + '\t'
 			+ numComment + '\t\t'
 			+ date
-		) # for display only 
+		) 
+		
+		# for display only 
+
 		
 	return returndictlist
