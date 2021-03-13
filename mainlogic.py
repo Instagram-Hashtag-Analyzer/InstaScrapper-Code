@@ -11,13 +11,13 @@ import mysql.connector
 from mysql.connector import errorcode
 # import xlwt # excel
 from webreader import get_tagpage_json
+from jparser import total_like_of
+from jparser import create_top9infolist
 from db_operation import create_database
 from db_operation import create_tables
 from db_operation import insert_tag_like
 from db_operation import insert_tag_toppost
-from jparser import total_like_of
-from jparser import create_top9infolist
-
+from db_operation import insert_toppost_info
 
 
 
@@ -73,7 +73,7 @@ def start():
     
     insert_tag_toppost(cursor, tag_name, top9infolist)
         
-    
+    insert_toppost_info(cursor, top9infolist)
 
 
     conn.commit()
@@ -139,22 +139,22 @@ if __name__ == "__main__":
 
 
 
-'''
-def sum (n): 
-    if n == 0: 
-        return 0
-    else: 
-        print (n)
-        return n + sum (n - 1) 
-        
-print (sum (10))
-'''
-'''
-list = ['a', 'b', 'c']
+#
+#def sum (n): 
+#    if n == 0: 
+#        return 0
+#    else: 
+#        print (n)
+#        return n + sum (n - 1) 
+#        
+#print (sum (10))
+#
+#
+#list = ['a', 'b', 'c']
+#
+#for i, k in enumerate(list):
+#    print ("%d: %s"%(i, k))
 
-for i, k in enumerate(list):
-    print ("%d: %s"%(i, k))
-'''
 
 # 2. parsing
     

@@ -67,7 +67,40 @@ def insert_tag_toppost(cursor, tagname, list):
             cursor.execute(add_tag, data_tag)
         except mysql.connector.IntegrityError:
             pass
+
+def insert_toppost_info(cursor, list):
+    
+    for dict in list:
+        postId = dict["postId"]
+        numLike = dict["numLike"]
+        numComment = dict["numComment"]
+        pdate = dict["date"]
         
+        
+        add_tag = ("INSERT INTO toppost_info "
+            "(postId, numLike, numComment, pdate) "
+            "VALUES (%(postId)s, %(numLike)s, %(numComment)s, %(pdate)s)")
+#            "ON DUPLICATE KEY UPDATE"
+#            "numLike = %s,"
+#            "numComment = %s,"
+#            "pdate = %s")
+        
+        
+        # data set for test only, DONE: data feeder implementation
+        data_tag = {
+            'postId':     postId,
+            'numLike':    numLike,
+            'numComment': numComment,
+            'pdate':      pdate,
+            'numLike':    numLike,
+            'numComment': numComment,
+            'pdate':      pdate
+        }
+        try:
+            cursor.execute(add_tag, data_tag)
+        except mysql.connector.IntegrityError:
+            pass
+            
     
 def create_tables(cursor):
     try: 
@@ -82,13 +115,28 @@ def create_tables(cursor):
         print("Table error: ")
         print(e.msg)
         pass 
-        ####		
+####		
     try: 
         cursor.execute(''' 
             CREATE TABLE IF NOT EXISTS `tag_toppost` (
             `tagname` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
             `postId` char(11) NOT NULL,
              PRIMARY KEY (tagname, postId)) 
+        ''')
+        # `id` int IDENTITY PRIMARY KEY,
+        
+    except mysql.connector.Error as e: 
+        print("Table error: ")
+        print(e.msg)
+        pass 
+####		
+    try: 
+        cursor.execute(''' 
+            CREATE TABLE IF NOT EXISTS `toppost_info` (
+            `postId` char(11) NOT NULL PRIMARY KEY,
+            `numLike` int(12) NOT NULL,
+            `numComment` int(12) NOT NULL,
+            `pdate` date NOT NULL)
         ''')
         # `id` int IDENTITY PRIMARY KEY,
         
