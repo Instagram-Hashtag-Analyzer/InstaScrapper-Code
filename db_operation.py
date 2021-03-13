@@ -92,15 +92,32 @@ def insert_toppost_info(cursor, list):
             'numLike':    numLike,
             'numComment': numComment,
             'pdate':      pdate,
-            'numLike':    numLike,
-            'numComment': numComment,
-            'pdate':      pdate
+#            'numLike':    numLike,
+#            'numComment': numComment,
+#            'pdate':      pdate
         }
         try:
             cursor.execute(add_tag, data_tag)
         except mysql.connector.IntegrityError:
             pass
-            
+
+def insert_tag_tag(cursor, tagname, list): 
+        for dict in list: 
+            for tag in dict["tags"]: 
+                if tagname not in tag: 
+                    print(tag)
+                add_tag = ("INSERT INTO tag_tag"
+                    "(tagname, alttag) "
+                    "VALUES (%(tagname)s, %(alttag)s)")
+                data_tag = {
+                    'tagname':   tagname,
+                    'alttag':    tag.strip().replace('#', '')
+                }
+                try:
+                    cursor.execute(add_tag, data_tag)
+                except mysql.connector.IntegrityError:
+                    pass    
+    
     
 def create_tables(cursor):
     try: 
@@ -138,9 +155,23 @@ def create_tables(cursor):
             `numComment` int(12) NOT NULL,
             `pdate` date NOT NULL)
         ''')
-        # `id` int IDENTITY PRIMARY KEY,
         
     except mysql.connector.Error as e: 
         print("Table error: ")
         print(e.msg)
         pass 
+        
+####		
+    try: 
+        cursor.execute(''' 
+            CREATE TABLE IF NOT EXISTS `tag_tag` (
+            `tagname` varchar(50) COLLATE utf8_unicode_ci,
+            `alttag`  varchar(50), 
+             PRIMARY KEY (tagname, alttag))
+        ''')
+        
+    except mysql.connector.Error as e: 
+        print("Table error: ")
+        print(e.msg)
+        pass 
+        

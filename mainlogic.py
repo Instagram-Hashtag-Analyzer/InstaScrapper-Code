@@ -18,8 +18,7 @@ from db_operation import create_tables
 from db_operation import insert_tag_like
 from db_operation import insert_tag_toppost
 from db_operation import insert_toppost_info
-
-
+from db_operation import insert_tag_tag
 
 
 def start():
@@ -69,16 +68,24 @@ def start():
     
     # Insert, modification of table 01: 
 
-    insert_tag_like(cursor, tag_name, total_like_count)
+    insert_tag_like(cursor, tag_name, total_like_count) 
     
     insert_tag_toppost(cursor, tag_name, top9infolist)
         
     insert_toppost_info(cursor, top9infolist)
+    
+    insert_tag_tag(cursor, tag_name, top9infolist)
 
 
     conn.commit()
     cursor.close()
     conn.close()
+
+
+    def filter_strategy(t):
+        print("")
+
+    filter_strategy(tag_name)
 
 
 #`top9PostId` varchar(50) COLLATE utf8_unicode_ci,
@@ -127,7 +134,7 @@ if __name__ == "__main__":
 #| =CKPFztCDsUO= |    1426 |         14 | 2021-01-19 |
 #
 #
-##+CAPTION: post_contain_tag
+##+CAPTION: post_contain_tag XXXXXXXXXXXXXXXXXXXXXXXX
 #| postId        | tagname       |
 #|---------------+---------------|
 #| =CKPFztCDsUO= | NULL          |
