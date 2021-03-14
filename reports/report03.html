@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-03-14 Sun 09:27 -->
+<!-- 2021-03-14 Sun 09:34 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>IP REPORT 03</title>
@@ -229,31 +229,31 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org8f2d54e">1. Recap with New DB Tables</a>
+<li><a href="#orgc10bc28">1. Recap with New DB Tables</a>
 <ul>
-<li><a href="#orge4e28ff">1.1. tag_like</a></li>
-<li><a href="#orgb6af893">1.2. tag_toppost</a></li>
-<li><a href="#org62afe43">1.3. toppost_info</a></li>
-<li><a href="#orgdc90d0d">1.4. tag_tag</a></li>
+<li><a href="#org2b2d20b">1.1. tag_like</a></li>
+<li><a href="#org0b23a5d">1.2. tag_toppost</a></li>
+<li><a href="#orgd605898">1.3. toppost_info</a></li>
+<li><a href="#orgf57c063">1.4. tag_tag</a></li>
 </ul>
 </li>
-<li><a href="#org1abf98c">2. Updated Python Scrapper 🔗</a>
+<li><a href="#orga469e5b">2. Updated Python Scrapper 🔗</a>
 <ul>
-<li><a href="#org17d8fab">2.1. Create new modules</a></li>
-<li><a href="#org03c59a7">2.2. Difficulties</a></li>
+<li><a href="#org24a0e7e">2.1. Create new modules</a></li>
+<li><a href="#orgf223ea2">2.2. Difficulties</a></li>
 </ul>
 </li>
-<li><a href="#org35928bc">3. Future planning and challenges</a></li>
+<li><a href="#org6de1216">3. Future planning and challenges</a></li>
 </ul>
 </div>
 </div>
 <p>
-A static html file is available for download <a href="https://www.dropbox.com/s/j3qqvshr22wg0ta/IP_report02_LiShihao.html?dl=0">here</a> for the better reading experience in a
+A static html file is available for download <a href="https://www.dropbox.com/s/ai6u1aoryosflah/IP_report03_LiShihao-A0165362E.html?dl=0">here</a> for the better reading experience in a
 browser. Highly recommend.
 </p>
 
-<div id="outline-container-org8f2d54e" class="outline-2">
-<h2 id="org8f2d54e"><span class="section-number-2">1</span> Recap with New DB Tables</h2>
+<div id="outline-container-orgc10bc28" class="outline-2">
+<h2 id="orgc10bc28"><span class="section-number-2">1</span> Recap with New DB Tables</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Continue from last report, where I ended with DataBase Table design. I&rsquo;ve made
@@ -263,8 +263,8 @@ committed to my <a href="https://github.com/instagram-hashtag-analyzer/instascra
 </p>
 </div>
 
-<div id="outline-container-orge4e28ff" class="outline-3">
-<h3 id="orge4e28ff"><span class="section-number-3">1.1</span> tag_like</h3>
+<div id="outline-container-org2b2d20b" class="outline-3">
+<h3 id="org2b2d20b"><span class="section-number-3">1.1</span> tag_like</h3>
 <div class="outline-text-3" id="text-1-1">
 <div class="org-src-container">
 <pre class="src src-shell">mysql&gt; select * from tag_like;
@@ -283,8 +283,8 @@ committed to my <a href="https://github.com/instagram-hashtag-analyzer/instascra
 </div>
 </div>
 </div>
-<div id="outline-container-orgb6af893" class="outline-3">
-<h3 id="orgb6af893"><span class="section-number-3">1.2</span> tag_toppost</h3>
+<div id="outline-container-org0b23a5d" class="outline-3">
+<h3 id="org0b23a5d"><span class="section-number-3">1.2</span> tag_toppost</h3>
 <div class="outline-text-3" id="text-1-2">
 <div class="org-src-container">
 <pre class="src src-shell">mysql&gt; select * from tag_toppost;
@@ -334,8 +334,8 @@ committed to my <a href="https://github.com/instagram-hashtag-analyzer/instascra
 </div>
 </div>
 </div>
-<div id="outline-container-org62afe43" class="outline-3">
-<h3 id="org62afe43"><span class="section-number-3">1.3</span> toppost_info</h3>
+<div id="outline-container-orgd605898" class="outline-3">
+<h3 id="orgd605898"><span class="section-number-3">1.3</span> toppost_info</h3>
 <div class="outline-text-3" id="text-1-3">
 <div class="org-src-container">
 <pre class="src src-shell">mysql&gt; select * from toppost_info;
@@ -386,8 +386,8 @@ committed to my <a href="https://github.com/instagram-hashtag-analyzer/instascra
 </div>
 </div>
 
-<div id="outline-container-orgdc90d0d" class="outline-3">
-<h3 id="orgdc90d0d"><span class="section-number-3">1.4</span> tag_tag</h3>
+<div id="outline-container-orgf57c063" class="outline-3">
+<h3 id="orgf57c063"><span class="section-number-3">1.4</span> tag_tag</h3>
 <div class="outline-text-3" id="text-1-4">
 <div class="org-src-container">
 <pre class="src src-shell">mysql&gt; select * from tag_tag;
@@ -625,8 +625,8 @@ committed to my <a href="https://github.com/instagram-hashtag-analyzer/instascra
 </div>
 
 
-<div id="outline-container-org1abf98c" class="outline-2">
-<h2 id="org1abf98c"><span class="section-number-2">2</span> <a href="https://github.com/instagram-hashtag-analyzer/instascrapper-code">Updated Python Scrapper 🔗</a></h2>
+<div id="outline-container-orga469e5b" class="outline-2">
+<h2 id="orga469e5b"><span class="section-number-2">2</span> <a href="https://github.com/instagram-hashtag-analyzer/instascrapper-code">Updated Python Scrapper 🔗</a></h2>
 <div class="outline-text-2" id="text-2">
 <p>
 It is difficult to continue adding more logics and coding blocks when it hits to
@@ -637,8 +637,8 @@ issues which can only be solved by large restructuring.
 </p>
 </div>
 
-<div id="outline-container-org17d8fab" class="outline-3">
-<h3 id="org17d8fab"><span class="section-number-3">2.1</span> Create new modules</h3>
+<div id="outline-container-org24a0e7e" class="outline-3">
+<h3 id="org24a0e7e"><span class="section-number-3">2.1</span> Create new modules</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 In the <code>mainLogic.py</code>, current dependencies as below:
@@ -762,8 +762,8 @@ So our mainlogic of database operations are pretty much simplified to:
 
 
 
-<div id="outline-container-org03c59a7" class="outline-3">
-<h3 id="org03c59a7"><span class="section-number-3">2.2</span> Difficulties</h3>
+<div id="outline-container-orgf223ea2" class="outline-3">
+<h3 id="orgf223ea2"><span class="section-number-3">2.2</span> Difficulties</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 A lot time spent on debug for SQL quiries. Often problems can be the table
@@ -792,8 +792,8 @@ UPDATE`:
 </div>
 
 
-<div id="outline-container-org35928bc" class="outline-2">
-<h2 id="org35928bc"><span class="section-number-2">3</span> Future planning and challenges</h2>
+<div id="outline-container-org6de1216" class="outline-2">
+<h2 id="org6de1216"><span class="section-number-2">3</span> Future planning and challenges</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 DataBase is structured. I left one function called <code>filter_strategy</code>
@@ -809,7 +809,7 @@ whatever inside by our liking without affecting other parts of the system.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Li Shihao</p>
-<p class="date">Created: 2021-03-14 Sun 09:27</p>
+<p class="date">Created: 2021-03-14 Sun 09:34</p>
 </div>
 </body>
 </html>
