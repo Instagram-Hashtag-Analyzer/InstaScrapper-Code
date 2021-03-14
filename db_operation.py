@@ -81,7 +81,7 @@ def insert_toppost_info(cursor, list):
             "(postId, numLike, numComment, pdate) "
             "VALUES (%(postId)s, %(numLike)s, %(numComment)s, %(pdate)s)")
 #            "ON DUPLICATE KEY UPDATE"
-#            "numLike = %s,"
+#            "numLike = VALUES(numLike),"
 #            "numComment = %s,"
 #            "pdate = %s")
         

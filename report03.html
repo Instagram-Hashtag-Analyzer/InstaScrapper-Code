@@ -1,0 +1,815 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-03-14 Sun 09:27 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>IP REPORT 03</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Li Shihao" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">IP REPORT 03</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org8f2d54e">1. Recap with New DB Tables</a>
+<ul>
+<li><a href="#orge4e28ff">1.1. tag_like</a></li>
+<li><a href="#orgb6af893">1.2. tag_toppost</a></li>
+<li><a href="#org62afe43">1.3. toppost_info</a></li>
+<li><a href="#orgdc90d0d">1.4. tag_tag</a></li>
+</ul>
+</li>
+<li><a href="#org1abf98c">2. Updated Python Scrapper 🔗</a>
+<ul>
+<li><a href="#org17d8fab">2.1. Create new modules</a></li>
+<li><a href="#org03c59a7">2.2. Difficulties</a></li>
+</ul>
+</li>
+<li><a href="#org35928bc">3. Future planning and challenges</a></li>
+</ul>
+</div>
+</div>
+<p>
+A static html file is available for download <a href="https://www.dropbox.com/s/j3qqvshr22wg0ta/IP_report02_LiShihao.html?dl=0">here</a> for the better reading experience in a
+browser. Highly recommend.
+</p>
+
+<div id="outline-container-org8f2d54e" class="outline-2">
+<h2 id="org8f2d54e"><span class="section-number-2">1</span> Recap with New DB Tables</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Continue from last report, where I ended with DataBase Table design. I&rsquo;ve made
+slight modifications since. I shall paste
+below the results of mySQL quiries after a few runs, which aligns with what I
+committed to my <a href="https://github.com/instagram-hashtag-analyzer/instascrapper-code">repository</a>.
+</p>
+</div>
+
+<div id="outline-container-orge4e28ff" class="outline-3">
+<h3 id="orge4e28ff"><span class="section-number-3">1.1</span> tag_like</h3>
+<div class="outline-text-3" id="text-1-1">
+<div class="org-src-container">
+<pre class="src src-shell">mysql&gt; select * from tag_like;
++----------------------------+---------+
+| tagname                    | numLike |
++----------------------------+---------+
+| animalcrossing             | <span style="color: #da8548; font-weight: bold;">5335247</span> |
+| automaticreferencecounting |       <span style="color: #da8548; font-weight: bold;">1</span> |
+| copyonwrite                |       <span style="color: #da8548; font-weight: bold;">1</span> |
+| daskapital                 |   <span style="color: #da8548; font-weight: bold;">12441</span> |
+| rwby                       |  <span style="color: #da8548; font-weight: bold;">794138</span> |
+| splatoon                   | <span style="color: #da8548; font-weight: bold;">1043544</span> |
++----------------------------+---------+
+<span style="color: #da8548; font-weight: bold;">6</span> rows<span style="color: #51afef;"> in</span> set <span style="color: #51afef;">(</span><span style="color: #da8548; font-weight: bold;">0.00</span> sec<span style="color: #51afef;">)</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb6af893" class="outline-3">
+<h3 id="orgb6af893"><span class="section-number-3">1.2</span> tag_toppost</h3>
+<div class="outline-text-3" id="text-1-2">
+<div class="org-src-container">
+<pre class="src src-shell">mysql&gt; select * from tag_toppost;
++----------------------------+-------------+
+| tagname                    | postId      |
++----------------------------+-------------+
+| animalcrossing             | CMSUj3eJ4wD |
+| animalcrossing             | CMU41grp-W0 |
+| animalcrossing             | CMUan5tJf38 |
+| animalcrossing             | CMUbprgJAGO |
+| animalcrossing             | CMUhVi8pkXn |
+| animalcrossing             | CMUmB7TpBvA |
+| animalcrossing             | CMV2haDpvZe |
+| animalcrossing             | CMVBd7wJlGr |
+| animalcrossing             | CMVChBXJ9UX |
+| automaticreferencecounting | B1v3vpajGk_ |
+| copyonwrite                | BuoQQmVnpa5 |
+| daskapital                 | B_0LxT6AJgk |
+| daskapital                 | B_qf5ZdpQOw |
+| daskapital                 | B8OjRF-JR51 |
+| daskapital                 | BifMI1zgAUd |
+| daskapital                 | BrVjIXMARQ9 |
+| daskapital                 | CAcoy-DIPF3 |
+| daskapital                 | CDmEdrejJnK |
+| daskapital                 | CEIsHK1Alhu |
+| rwby                       | CL21DQ7FMAj |
+| rwby                       | CL5Q-gwlTqO |
+| rwby                       | CMAVu62gPDr |
+| rwby                       | CMEHrUdrTeQ |
+| rwby                       | CMITG8ulXvp |
+| rwby                       | CMK_-imAftu |
+| rwby                       | CMStEdJBUW4 |
+| rwby                       | CMSUcxTpjNf |
+| rwby                       | CMVkbzwBu9O |
+| splatoon                   | CL-B72BJxQO |
+| splatoon                   | CL2Ma8AJv7a |
+| splatoon                   | CMF6DZYFs5l |
+| splatoon                   | CMFabycp3_v |
+| splatoon                   | CMOBd82JKYQ |
+| splatoon                   | CMQaFi4JgmS |
+| splatoon                   | CMRfS9KJYG3 |
+| splatoon                   | CMU0sHGJWcw |
+| splatoon                   | CMVC-7OJQVR |
++----------------------------+-------------+
+<span style="color: #da8548; font-weight: bold;">37</span> rows<span style="color: #51afef;"> in</span> set <span style="color: #51afef;">(</span><span style="color: #da8548; font-weight: bold;">0.00</span> sec<span style="color: #51afef;">)</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org62afe43" class="outline-3">
+<h3 id="org62afe43"><span class="section-number-3">1.3</span> toppost_info</h3>
+<div class="outline-text-3" id="text-1-3">
+<div class="org-src-container">
+<pre class="src src-shell">mysql&gt; select * from toppost_info;
++-------------+---------+------------+------------+
+| postId      | numLike | numComment | pdate      |
++-------------+---------+------------+------------+
+| B_0LxT6AJgk |    <span style="color: #da8548; font-weight: bold;">1898</span> |         <span style="color: #da8548; font-weight: bold;">44</span> | 2020-05-05 |
+| B_qf5ZdpQOw |     <span style="color: #da8548; font-weight: bold;">265</span> |         <span style="color: #da8548; font-weight: bold;">13</span> | 2020-05-01 |
+| B1v3vpajGk_ |       <span style="color: #da8548; font-weight: bold;">0</span> |          <span style="color: #da8548; font-weight: bold;">0</span> | 2019-08-29 |
+| B8OjRF-JR51 |     <span style="color: #da8548; font-weight: bold;">169</span> |         <span style="color: #da8548; font-weight: bold;">40</span> | 2020-02-06 |
+| BifMI1zgAUd |     <span style="color: #da8548; font-weight: bold;">137</span> |          <span style="color: #da8548; font-weight: bold;">7</span> | 2018-05-07 |
+| BrVjIXMARQ9 |     <span style="color: #da8548; font-weight: bold;">117</span> |          <span style="color: #da8548; font-weight: bold;">3</span> | 2018-12-13 |
+| BuoQQmVnpa5 |       <span style="color: #da8548; font-weight: bold;">5</span> |          <span style="color: #da8548; font-weight: bold;">0</span> | 2019-03-05 |
+| CAcoy-DIPF3 |     <span style="color: #da8548; font-weight: bold;">116</span> |          <span style="color: #da8548; font-weight: bold;">3</span> | 2020-05-21 |
+| CDmEdrejJnK |    <span style="color: #da8548; font-weight: bold;">4969</span> |        <span style="color: #da8548; font-weight: bold;">127</span> | 2020-08-07 |
+| CEIsHK1Alhu |     <span style="color: #da8548; font-weight: bold;">111</span> |          <span style="color: #da8548; font-weight: bold;">6</span> | 2020-08-21 |
+| CL-B72BJxQO |    <span style="color: #da8548; font-weight: bold;">1910</span> |         <span style="color: #da8548; font-weight: bold;">18</span> | 2021-03-03 |
+| CL21DQ7FMAj |     <span style="color: #da8548; font-weight: bold;">915</span> |         <span style="color: #da8548; font-weight: bold;">44</span> | 2021-03-01 |
+| CL2Ma8AJv7a |    <span style="color: #da8548; font-weight: bold;">4197</span> |         <span style="color: #da8548; font-weight: bold;">99</span> | 2021-02-28 |
+| CL5Q-gwlTqO |    <span style="color: #da8548; font-weight: bold;">3412</span> |        <span style="color: #da8548; font-weight: bold;">124</span> | 2021-03-01 |
+| CMAVu62gPDr |    <span style="color: #da8548; font-weight: bold;">1467</span> |          <span style="color: #da8548; font-weight: bold;">4</span> | 2021-03-04 |
+| CMEHrUdrTeQ |     <span style="color: #da8548; font-weight: bold;">544</span> |         <span style="color: #da8548; font-weight: bold;">26</span> | 2021-03-06 |
+| CMF6DZYFs5l |     <span style="color: #da8548; font-weight: bold;">336</span> |         <span style="color: #da8548; font-weight: bold;">14</span> | 2021-03-06 |
+| CMFabycp3_v |    <span style="color: #da8548; font-weight: bold;">7133</span> |        <span style="color: #da8548; font-weight: bold;">283</span> | 2021-03-06 |
+| CMITG8ulXvp |     <span style="color: #da8548; font-weight: bold;">409</span> |          <span style="color: #da8548; font-weight: bold;">9</span> | 2021-03-07 |
+| CMK_-imAftu |     <span style="color: #da8548; font-weight: bold;">411</span> |          <span style="color: #da8548; font-weight: bold;">3</span> | 2021-03-08 |
+| CMOBd82JKYQ |    <span style="color: #da8548; font-weight: bold;">3015</span> |         <span style="color: #da8548; font-weight: bold;">49</span> | 2021-03-10 |
+| CMQaFi4JgmS |     <span style="color: #da8548; font-weight: bold;">611</span> |          <span style="color: #da8548; font-weight: bold;">7</span> | 2021-03-10 |
+| CMRfS9KJYG3 |    <span style="color: #da8548; font-weight: bold;">1511</span> |         <span style="color: #da8548; font-weight: bold;">74</span> | 2021-03-11 |
+| CMStEdJBUW4 |    <span style="color: #da8548; font-weight: bold;">1390</span> |         <span style="color: #da8548; font-weight: bold;">16</span> | 2021-03-11 |
+| CMSUcxTpjNf |    <span style="color: #da8548; font-weight: bold;">1571</span> |         <span style="color: #da8548; font-weight: bold;">39</span> | 2021-03-11 |
+| CMSUj3eJ4wD |    <span style="color: #da8548; font-weight: bold;">1143</span> |         <span style="color: #da8548; font-weight: bold;">18</span> | 2021-03-11 |
+| CMU0sHGJWcw |    <span style="color: #da8548; font-weight: bold;">2559</span> |         <span style="color: #da8548; font-weight: bold;">30</span> | 2021-03-12 |
+| CMU41grp-W0 |    <span style="color: #da8548; font-weight: bold;">9307</span> |         <span style="color: #da8548; font-weight: bold;">29</span> | 2021-03-12 |
+| CMUan5tJf38 |     <span style="color: #da8548; font-weight: bold;">212</span> |         <span style="color: #da8548; font-weight: bold;">52</span> | 2021-03-12 |
+| CMUbprgJAGO |    <span style="color: #da8548; font-weight: bold;">4444</span> |         <span style="color: #da8548; font-weight: bold;">64</span> | 2021-03-12 |
+| CMUhVi8pkXn |    <span style="color: #da8548; font-weight: bold;">1506</span> |         <span style="color: #da8548; font-weight: bold;">49</span> | 2021-03-12 |
+| CMUmB7TpBvA |    <span style="color: #da8548; font-weight: bold;">3639</span> |         <span style="color: #da8548; font-weight: bold;">11</span> | 2021-03-12 |
+| CMV2haDpvZe |   <span style="color: #da8548; font-weight: bold;">12419</span> |         <span style="color: #da8548; font-weight: bold;">31</span> | 2021-03-13 |
+| CMVBd7wJlGr |    <span style="color: #da8548; font-weight: bold;">5026</span> |        <span style="color: #da8548; font-weight: bold;">135</span> | 2021-03-12 |
+| CMVC-7OJQVR |    <span style="color: #da8548; font-weight: bold;">1187</span> |         <span style="color: #da8548; font-weight: bold;">29</span> | 2021-03-12 |
+| CMVChBXJ9UX |    <span style="color: #da8548; font-weight: bold;">5366</span> |         <span style="color: #da8548; font-weight: bold;">31</span> | 2021-03-12 |
+| CMVkbzwBu9O |    <span style="color: #da8548; font-weight: bold;">1558</span> |         <span style="color: #da8548; font-weight: bold;">43</span> | 2021-03-12 |
++-------------+---------+------------+------------+
+<span style="color: #da8548; font-weight: bold;">37</span> rows<span style="color: #51afef;"> in</span> set <span style="color: #51afef;">(</span><span style="color: #da8548; font-weight: bold;">0.00</span> sec<span style="color: #51afef;">)</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdc90d0d" class="outline-3">
+<h3 id="orgdc90d0d"><span class="section-number-3">1.4</span> tag_tag</h3>
+<div class="outline-text-3" id="text-1-4">
+<div class="org-src-container">
+<pre class="src src-shell">mysql&gt; select * from tag_tag;
++----------------------------+-----------------------------+
+| tagname                    | alttag                      |
++----------------------------+-----------------------------+
+| animalcrossing             | acnh                        |
+| animalcrossing             | acnhaesthetics              |
+| animalcrossing             | acnhcodes                   |
+| animalcrossing             | acnhcommunity               |
+| animalcrossing             | acnhdesigns                 |
+| animalcrossing             | acnhdreamcode               |
+| animalcrossing             | acnhidea                    |
+| animalcrossing             | acnhinspo                   |
+| animalcrossing             | acnhisland                  |
+| animalcrossing             | acpc                        |
+| animalcrossing             | AMIIBO                      |
+| animalcrossing             | animalcrossing              |
+| animalcrossing             | animalcrossingaddict        |
+| animalcrossing             | animalcrossingcommunity     |
+| animalcrossing             | animalcrossingdesigns       |
+| animalcrossing             | animalcrossingedit          |
+| animalcrossing             | animalcrossingfandom        |
+| animalcrossing             | animalcrossingideas         |
+| animalcrossing             | animalcrossinginspiration   |
+| animalcrossing             | animalcrossinginspo         |
+| animalcrossing             | animalcrossinginspos        |
+| animalcrossing             | animalcrossingnewhorizons   |
+| animalcrossing             | animalcrossingnewleaf       |
+| animalcrossing             | animalcrossingpocketcamp    |
+| animalcrossing             | animalcrossingqrcodes       |
+| animalcrossing             | animalcrossingswitch        |
+| animalcrossing             | aninalcrossingnewhorizons   |
+| animalcrossing             | bamboo                      |
+| animalcrossing             | chinese                     |
+| animalcrossing             | cityfolk                    |
+| animalcrossing             | crossingcreations           |
+| animalcrossing             | gamer                       |
+| animalcrossing             | gaming                      |
+| animalcrossing             | happyyhorizons              |
+| animalcrossing             | horizonsinspo               |
+| animalcrossing             | instagamer                  |
+| animalcrossing             | island                      |
+| animalcrossing             | japan                       |
+| animalcrossing             | jungle                      |
+| animalcrossing             | mario                       |
+| animalcrossing             | newhorizons                 |
+| animalcrossing             | Newleaf                     |
+| animalcrossing             | nintendo                    |
+| animalcrossing             | nintendoswitch              |
+| animalcrossing             | pocketcamp                  |
+| animalcrossing             | red                         |
+| animalcrossing             | spring                      |
+| animalcrossing             | switch                      |
+| animalcrossing             | theme                       |
+| animalcrossing             | tropical                    |
+| animalcrossing             | &#12393;&#12358;&#12406;&#12388;&#12398;&#26862;                  |
+| animalcrossing             | &#21205;&#29289;&#26862;&#21451;&#26371;                    |
+| automaticreferencecounting | Arc                         |
+| automaticreferencecounting | AutomaticReferenceCounting  |
+| automaticreferencecounting | Blog                        |
+| automaticreferencecounting | InnovationM                 |
+| automaticreferencecounting | Swift                       |
+| automaticreferencecounting | SwiftMemoryManagement       |
+| automaticreferencecounting | Technical                   |
+| copyonwrite                | apple                       |
+| copyonwrite                | copyonwrite                 |
+| copyonwrite                | cow                         |
+| copyonwrite                | google                      |
+| copyonwrite                | g&#252;venlika&#231;&#305;&#287;&#305;               |
+| copyonwrite                | macos                       |
+| copyonwrite                | projectzero                 |
+| daskapital                 | 1demaio                     |
+| daskapital                 | artspace                    |
+| daskapital                 | berlinkreuzberg             |
+| daskapital                 | berlinstagram               |
+| daskapital                 | bibliophile                 |
+| daskapital                 | bookaholic                  |
+| daskapital                 | bookish                     |
+| daskapital                 | bookphotography             |
+| daskapital                 | books                       |
+| daskapital                 | bookshelf                   |
+| daskapital                 | booksofinstagram            |
+| daskapital                 | bookstagram                 |
+| daskapital                 | bookstagrammer              |
+| daskapital                 | bookworm                    |
+| daskapital                 | catherineroseevans          |
+| daskapital                 | contemporaryart             |
+| daskapital                 | dasartyberlin               |
+| daskapital                 | daskapital                  |
+| daskapital                 | DE                          |
+| daskapital                 | deepblue                    |
+| daskapital                 | deutscheweine               |
+| daskapital                 | deutschland                 |
+| daskapital                 | diadotrabalhador            |
+| daskapital                 | drawing                     |
+| daskapital                 | edebi&#252;topya                 |
+| daskapital                 | freidrichengels             |
+| daskapital                 | groupshow                   |
+| daskapital                 | hegel                       |
+| daskapital                 | Kapital                     |
+| daskapital                 | karlmarx                    |
+| daskapital                 | kitap                       |
+| daskapital                 | kitapiyikivar               |
+| daskapital                 | kitapkurdu                  |
+| daskapital                 | kitaplar                    |
+| daskapital                 | mammalia                    |
+| daskapital                 | markers                     |
+| daskapital                 | marx                        |
+| daskapital                 | maximingr&#252;nhaus             |
+| daskapital                 | may1st                      |
+| daskapital                 | mylife                      |
+| daskapital                 | nonfiction                  |
+| daskapital                 | nonfictionbooks             |
+| daskapital                 | okudumbitti                 |
+| daskapital                 | okumak                      |
+| daskapital                 | okumakg&#252;zeldir              |
+| daskapital                 | philosophy                  |
+| daskapital                 | politicaleconomy            |
+| daskapital                 | reader                      |
+| daskapital                 | readersofig                 |
+| daskapital                 | readersofinstagram          |
+| daskapital                 | reading                     |
+| daskapital                 | reads                       |
+| daskapital                 | relapse                     |
+| daskapital                 | schaufenster                |
+| daskapital                 | schaufensterberlin          |
+| daskapital                 | tbt                         |
+| daskapital                 | temporaryexhibition         |
+| daskapital                 | thelibraryofdidsus          |
+| daskapital                 | thephenomenologyofspirit    |
+| daskapital                 | trier                       |
+| daskapital                 | voyeur                      |
+| daskapital                 | weingut                     |
+| daskapital                 | window                      |
+| daskapital                 | windowshopping              |
+| daskapital                 | &#1050;&#1072;&#1087;&#1080;&#1090;&#1072;&#1083;                     |
+| daskapital                 | &#1050;&#1072;&#1088;&#1083;_&#1052;&#1072;&#1088;&#1082;&#1089;                  |
+| rwby                       | animeedit                   |
+| rwby                       | animeedits                  |
+| rwby                       | art                         |
+| rwby                       | blakebelladonna             |
+| rwby                       | digiartist                  |
+| rwby                       | digitalart                  |
+| rwby                       | Disney                      |
+| rwby                       | drawing                     |
+| rwby                       | emeraldsustari              |
+| rwby                       | emeraldsustrai              |
+| rwby                       | emercury                    |
+| rwby                       | fanart                      |
+| rwby                       | generalironwood             |
+| rwby                       | ironwood                    |
+| rwby                       | jaunearc                    |
+| rwby                       | lafirechickenart            |
+| rwby                       | lieren                      |
+| rwby                       | lierenedit                  |
+| rwby                       | Neo                         |
+| rwby                       | Neopolitan                  |
+| rwby                       | norarwby                    |
+| rwby                       | noravalkyrie                |
+| rwby                       | noravalkyrieedit            |
+| rwby                       | noravalkyrierwby            |
+| rwby                       | pyrrhanikos                 |
+| rwby                       | renora                      |
+| rwby                       | roosterteeth                |
+| rwby                       | rubyrose                    |
+| rwby                       | rwby                        |
+| rwby                       | rwby8                       |
+| rwby                       | rwbyart                     |
+| rwby                       | rwbyblake                   |
+| rwby                       | rwbyedit                    |
+| rwby                       | rwbyedits                   |
+| rwby                       | rwbyemerald                 |
+| rwby                       | rwbyfan                     |
+| rwby                       | rwbyfanart                  |
+| rwby                       | rwbyironwood                |
+| rwby                       | rwbyneo                     |
+| rwby                       | rwbyneopolitan              |
+| rwby                       | rwbynora                    |
+| rwby                       | rwbyren                     |
+| rwby                       | rwbyrenora                  |
+| rwby                       | rwbyrubyrose                |
+| rwby                       | rwbyv8                      |
+| rwby                       | rwbyvol8                    |
+| rwby                       | rwbyvolume8                 |
+| rwby                       | rwbyweiss                   |
+| rwby                       | rwbyyang                    |
+| rwby                       | teamjnpr                    |
+| rwby                       | teamrwby                    |
+| rwby                       | weissschnee                 |
+| rwby                       | yangxiaolong                |
+| splatoon                   | &#65345;&#65349;&#65363;&#65364;&#65352;&#65349;&#65364;&#65353;&#65347;             |
+| splatoon                   | animegirl                   |
+| splatoon                   | artist                      |
+| splatoon                   | artistoninstgram            |
+| splatoon                   | artistsoninstagram          |
+| splatoon                   | cartoonstyle                |
+| splatoon                   | characterconcept            |
+| splatoon                   | characterdesign             |
+| splatoon                   | conceptart                  |
+| splatoon                   | conceptartwork              |
+| splatoon                   | cute                        |
+| splatoon                   | cuteart                     |
+| splatoon                   | digitalart                  |
+| splatoon                   | digitaldrawing              |
+| splatoon                   | fanartdrawing               |
+| splatoon                   | inkling                     |
+| splatoon                   | inklingoc                   |
+| splatoon                   | kawaii                      |
+| splatoon                   | nintendo                    |
+| splatoon                   | nintendoart                 |
+| splatoon                   | nintendoswitch              |
+| splatoon                   | nintendoswitchlite          |
+| splatoon                   | oc                          |
+| splatoon                   | originalcharacter           |
+| splatoon                   | punkgirls                   |
+| splatoon                   | splatoon                    |
+| splatoon                   | splatoon2                   |
+| splatoon                   | splatoon2art                |
+| splatoon                   | splatoon3                   |
+| splatoon                   | splatoonart                 |
+| splatoon                   | splatoonartwork             |
+| splatoon                   | splatooncharacterart        |
+| splatoon                   | splatoonfanart              |
+| splatoon                   | splatoonidol                |
+| splatoon                   | splatoonoc                  |
+| splatoon                   | splatoonurchin              |
+| splatoon                   | tenshi                      |
++----------------------------+-----------------------------+
+<span style="color: #da8548; font-weight: bold;">222</span> rows<span style="color: #51afef;"> in</span> set <span style="color: #51afef;">(</span><span style="color: #da8548; font-weight: bold;">0.00</span> sec<span style="color: #51afef;">)</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org1abf98c" class="outline-2">
+<h2 id="org1abf98c"><span class="section-number-2">2</span> <a href="https://github.com/instagram-hashtag-analyzer/instascrapper-code">Updated Python Scrapper 🔗</a></h2>
+<div class="outline-text-2" id="text-2">
+<p>
+It is difficult to continue adding more logics and coding blocks when it hits to
+200 lines. I have to start thinking refactor the codespairer and abstract functions to
+other auxiliary files/modules. However, I didn&rsquo;t get enough time to plan it
+through to make Classes. The structure is at most usable, I found some coupling
+issues which can only be solved by large restructuring.
+</p>
+</div>
+
+<div id="outline-container-org17d8fab" class="outline-3">
+<h3 id="org17d8fab"><span class="section-number-3">2.1</span> Create new modules</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+In the <code>mainLogic.py</code>, current dependencies as below:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #5B6268;"># </span><span style="color: #5B6268;">-*- coding: utf-8 -*-</span>
+
+<span style="color: #51afef;">import</span> time
+<span style="color: #51afef;">from</span> datetime <span style="color: #51afef;">import</span> datetime, date
+
+<span style="color: #51afef;">import</span> mysql.connector
+<span style="color: #51afef;">from</span> mysql.connector <span style="color: #51afef;">import</span> errorcode
+
+<span style="color: #51afef;">from</span> webreader <span style="color: #51afef;">import</span> get_tagpage_json
+<span style="color: #51afef;">from</span> jparser <span style="color: #51afef;">import</span> total_like_of
+<span style="color: #51afef;">from</span> jparser <span style="color: #51afef;">import</span> create_top9infolist
+<span style="color: #51afef;">from</span> db_operation <span style="color: #51afef;">import</span> create_database
+<span style="color: #51afef;">from</span> db_operation <span style="color: #51afef;">import</span> create_tables
+<span style="color: #51afef;">from</span> db_operation <span style="color: #51afef;">import</span> insert_tag_like
+<span style="color: #51afef;">from</span> db_operation <span style="color: #51afef;">import</span> insert_tag_toppost
+<span style="color: #51afef;">from</span> db_operation <span style="color: #51afef;">import</span> insert_toppost_info
+<span style="color: #51afef;">from</span> db_operation <span style="color: #51afef;">import</span> insert_tag_tag
+</pre>
+</div>
+
+<p>
+New modules <code>webreader.py</code>, <code>jparser.py</code>, <code>db_operation.py</code> were created to abstract the
+function definitions from the main logic body. So that logic is cleaner to just
+make a bunch of function calls. (The parameters passing is not designed to my
+satisfaction yet, not easy to read)
+</p>
+
+<p>
+<code>webreader.py</code> provides <code>get_tagpage_json</code> to abstract away the getting webpage
+parts of logic, now it simplified to:
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #dcaeea;">jsonstr</span> = get_tagpage_json(tag_url)
+</pre>
+</div>
+<p>
+Which contains the info that we really need and filter out the extra info that
+we are not interested in.
+</p>
+
+<p>
+Then for the parsing, <code>jparser.py</code> offers various functions to retrieve the
+detailed items that we&rsquo;d like to store into database.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python">total_like_count : <span style="color: #c678dd;">int</span> = total_like_of(jsonstr) <span style="color: #5B6268;"># </span><span style="color: #5B6268;">not elegent</span>
+<span style="color: #dcaeea;">top9infolist</span> = create_top9infolist(jsonstr)
+</pre>
+</div>
+
+<p>
+To make the certain data consolidate together, a array of dictionary <code>top9infolist</code>
+is created by <code>jparser.py</code> which contains the info of the top 9 posts, each post can have
+<code>"postId"</code>, <code>"numLike"</code>, <code>"numComment"</code> and <code>"tags"</code> mentioned in the caption.
+</p>
+<div class="org-src-container">
+<pre class="src src-python">    <span style="color: #51afef;">for</span> jdict <span style="color: #51afef;">in</span> toppost_dicts[<span style="color: #98be65;">"edges"</span>]:
+
+        <span style="color: #dcaeea;">postId</span> = jdict[<span style="color: #98be65;">"node"</span>][<span style="color: #98be65;">"shortcode"</span>]
+        <span style="color: #dcaeea;">numLike</span> = <span style="color: #c678dd;">str</span>(jdict[<span style="color: #98be65;">"node"</span>][<span style="color: #98be65;">"edge_liked_by"</span>][<span style="color: #98be65;">"count"</span>])
+        <span style="color: #dcaeea;">numComment</span> = <span style="color: #c678dd;">str</span>(jdict[<span style="color: #98be65;">"node"</span>][<span style="color: #98be65;">"edge_media_to_comment"</span>][<span style="color: #98be65;">"count"</span>])
+        <span style="color: #dcaeea;">date</span> = datetime.utcfromtimestamp(jdict[<span style="color: #98be65;">"node"</span>][<span style="color: #98be65;">"taken_at_timestamp"</span>]).strftime(<span style="color: #98be65;">'%Y-%m-%d'</span>)
+
+        <span style="color: #dcaeea;">comment</span> = jdict[<span style="color: #98be65;">"node"</span>][<span style="color: #98be65;">"edge_media_to_caption"</span>][<span style="color: #98be65;">"edges"</span>][<span style="color: #da8548; font-weight: bold;">0</span>][<span style="color: #98be65;">"node"</span>][<span style="color: #98be65;">"text"</span>]
+        <span style="color: #dcaeea;">tags</span> = re.findall(<span style="color: #98be65;">'\B#\w\w+'</span>, comment)
+
+        <span style="color: #dcaeea;">newdict</span> = {}
+        <span style="color: #dcaeea;">newdict</span>[<span style="color: #98be65;">"postId"</span>] = postId
+        <span style="color: #dcaeea;">newdict</span>[<span style="color: #98be65;">"numLike"</span>] = numLike
+        <span style="color: #dcaeea;">newdict</span>[<span style="color: #98be65;">"numComment"</span>] = numComment
+        <span style="color: #dcaeea;">newdict</span>[<span style="color: #98be65;">"date"</span>] = date
+        <span style="color: #dcaeea;">newdict</span>[<span style="color: #98be65;">"tags"</span>] = tags
+
+        returndictlist.append(newdict)
+</pre>
+</div>
+
+
+<p>
+These attributes are ultilized in the functions in the <code>db_operation.py</code> to
+store into relevant tables.
+</p>
+
+<p>
+<code>db_operation.py</code> also has a single function <code>create_tables</code> for creating all
+the tables needed in our `explore` database.
+</p>
+
+<p>
+So our mainlogic of database operations are pretty much simplified to:
+</p>
+<div class="org-src-container">
+<pre class="src src-python">    <span style="color: #dcaeea;">cursor</span> = conn.cursor()
+
+    <span style="color: #5B6268;"># </span><span style="color: #5B6268;">Create Table 01:    `tag_like`</span>
+    create_tables(cursor)
+
+    insert_tag_like(cursor, tag_name, total_like_count)
+
+    insert_tag_toppost(cursor, tag_name, top9infolist)
+
+    insert_toppost_info(cursor, top9infolist)
+
+    insert_tag_tag(cursor, tag_name, top9infolist)
+
+
+    conn.commit()
+    cursor.close()
+    conn.close()
+</pre>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-org03c59a7" class="outline-3">
+<h3 id="org03c59a7"><span class="section-number-3">2.2</span> Difficulties</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+A lot time spent on debug for SQL quiries. Often problems can be the table
+creation and data insertion. The error message is pretty useless which only
+indicats the location and says that SQL syntax error, so it&rsquo;s difficult to
+debug. I spent an hour to find one miss bracket `)` in my DDL statement.
+</p>
+
+<p>
+For some reasons, I spent days still couldn&rsquo;t get it work for `ON DUPLICATE KEY
+UPDATE`:
+</p>
+<div class="org-src-container">
+<pre class="src src-python">
+        <span style="color: #dcaeea;">add_tag</span> = (<span style="color: #98be65;">"INSERT INTO toppost_info "</span>
+            <span style="color: #98be65;">"(postId, numLike, numComment, pdate) "</span>
+            <span style="color: #98be65;">"VALUES (%(postId)s, %(numLike)s, %(numComment)s, %(pdate)s)"</span>)
+<span style="color: #5B6268;">#            </span><span style="color: #5B6268;">"ON DUPLICATE KEY UPDATE"</span>
+<span style="color: #5B6268;">#            </span><span style="color: #5B6268;">"numLike = VALUES(numLike),"</span>
+<span style="color: #5B6268;">#            </span><span style="color: #5B6268;">"numComment = %s,"</span>
+<span style="color: #5B6268;">#            </span><span style="color: #5B6268;">"pdate = %s")</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org35928bc" class="outline-2">
+<h2 id="org35928bc"><span class="section-number-2">3</span> Future planning and challenges</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+DataBase is structured. I left one function called <code>filter_strategy</code>
+unimplemented, whoes responsibility is to filter out the unrelevant tags in
+tag_tag table. The tag_tag table stores all the tags mentioned in post
+caption section of the top 9 posts. Some of them are repeated or their
+popularity is even higher than the original searched hashtag which is less
+useful to us. By design certain strategy or algorism, we can replace
+whatever inside by our liking without affecting other parts of the system.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Li Shihao</p>
+<p class="date">Created: 2021-03-14 Sun 09:27</p>
+</div>
+</body>
+</html>
